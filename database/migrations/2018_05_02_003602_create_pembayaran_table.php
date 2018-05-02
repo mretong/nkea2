@@ -15,18 +15,18 @@ class CreatePembayaranTable extends Migration
     {
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_pemilik');
-            $table->integer('id_bank');
-            $table->integer('id_perbicaraan');
+            $table->integer('pemilik_id');
+            $table->integer('bank_id');
+            $table->integer('perbicaraan_id');
             $table->string('no_akaun');
-            $table->integer('kaedah_bayaran');
+            $table->integer('kaedah_bayar_id');
             $table->string('no_baucer');
             $table->date('tarikh_baucer');
             $table->string('no_cek');
             $table->date('tarikh_cek');
             $table->string('rujukan');
             $table->string('catatan');
-            $table->integer('id_status');
+            $table->integer('status_id');
             $table->string('rujukan_denda');
             $table->date('tarikh_denda');
             $table->string('attachment');

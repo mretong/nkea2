@@ -17,7 +17,7 @@ class CreateStaffTable extends Migration
             $table->increments('id');
             $table->string('nama');
             $table->string('no_pekerja');
-            $table->integer('id_ptj');
+            $table->integer('ptj_id');
             $table->timestamps()->nullable();
         });
     }

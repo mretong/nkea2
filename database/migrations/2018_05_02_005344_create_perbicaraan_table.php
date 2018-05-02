@@ -20,12 +20,12 @@ class CreatePerbicaraanTable extends Migration
             $table->date('tarikh_3');
             $table->date('tarikh_4');
             $table->date('tarikh_5');
-            $table->integer('id_daerah');
-            $table->integer('id_mukim');
-            $table->integer('id_blok');
-            $table->integer('id_lot');
-            $table->integer('id_staff');
-            $table->integer('id_status');
+            $table->integer('daerah_id');
+            $table->integer('mukim_id');
+            $table->integer('blok_id');
+            $table->integer('lot_id');
+            $table->integer('staff_id');
+            $table->integer('status_id');
             $table->integer('bil_pemilik');
             $table->double('luas_ambil',8,4);
             $table->double('harga_tanah',10,2);
@@ -36,7 +36,7 @@ class CreatePerbicaraanTable extends Migration
             $table->double('kos_lain',12,2);
             $table->string('catatan');
             $table->string('jajaran');
-            $table->timestamps();
+            $table->timestamps()->nullable();
         });
     }
 

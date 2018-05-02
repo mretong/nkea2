@@ -15,8 +15,8 @@ class CreateMukimTable extends Migration
     {
         Schema::create('mukim', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_daerah');
-            $table->integer('id_wilayah');
+            $table->integer('daerah_id');
+            $table->integer('wilayah_id');
             $table->string('nama');
             $table->timestamps()->nullable();
         });

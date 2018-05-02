@@ -19,15 +19,15 @@ class CreateAduanTable extends Migration
             $table->date('tarikh_terima');
             $table->date('tarikh_selesai');
             $table->string('masa_terima');
-            $table->integer('id_staff');
-            $table->integer('id_lot');
-            $table->integer('id_blok');
+            $table->integer('staff_id');
+            $table->integer('lot_id');
+            $table->integer('blok_id');
             $table->string('no_hakmilik');
             $table->string('nama_pengadu');
             $table->string('no_tel');
             $table->string('catatan');
             $table->string('maklumbalas');
-            $table->integer('status_aduan');
+            $table->integer('status_aduan_id');
             $table->timestamps()->nullable();
         });
     }

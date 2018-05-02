@@ -17,10 +17,10 @@ class CreateLogTable extends Migration
             $table->increments('id');
             $table->string('table');
             $table->string('desc');
-            $table->integer('id_staff');
+            $table->integer('staff_id');
             $table->string('create_at');
             $table->string('updated_at');
-            $table->timestamps()->nullable();
+            $table->timestamps();
         });
     }
 

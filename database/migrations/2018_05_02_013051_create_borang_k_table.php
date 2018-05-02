@@ -15,8 +15,8 @@ class CreateBorangKTable extends Migration
     {
         Schema::create('borang_k', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_blok');
-            $table->integer('id_lot');
+            $table->integer('blok_id');
+            $table->integer('lot_id');
             $table->date('tarikh_k');
             $table->date('tarikh_terima');
             $table->string('rujukan_jkptg');

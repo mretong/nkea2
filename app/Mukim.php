@@ -21,4 +21,9 @@ class Mukim extends Model
     {
     	return $this->belongsTo('App\Wilayah','id_wilayah','id');
     }
+
+    public function blok()
+    {
+        return $this->belongsToMany('App\Blok');
+    }
 }

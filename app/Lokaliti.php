@@ -4,17 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Daerah extends Model
+class Lokaliti extends Model
 {
-    protected $table = 'daerah';
+    protected $table = 'lokaliti';
     protected $primaryKey = 'id';
-    protected $fillable = ['negeri_id','nama','kod'];
+    protected $fillable = ['wilayah_id','nama','kod'];
 
     public $timestamps = false;
 
-    public function negeri()
+    public function wilayah()
     {
-    	return $this->belongsTo('App\Negeri','negeri_id','id');
+    	return $this->belongsTo('App\Wilayah','wilayah_id','id');
     }
 
     public function blok()

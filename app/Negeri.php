@@ -12,4 +12,13 @@ class Negeri extends Model
 
     public $timestamps = false;
 
+    public function blok()
+    {
+    	return $this->belongsToMany('App\Blok');
+    }
+
+    public function blok()
+    {
+    	return $this->belongsToMany('App\Blok');
+    }
 }
