@@ -14,8 +14,8 @@ class CreateLotPemilikTable extends Migration
     public function up()
     {
         Schema::create('lot_pemilik', function (Blueprint $table) {
-            $table->integer('id_pemilik');
-            $table->integer('id_lot');
+            $table->integer('pemilik-id');
+            $table->integer('lot_id');
             $table->timestamps()->nullable();
         });
     }

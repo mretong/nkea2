@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMukimTable extends Migration
+class CreateStatusBicaraTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateMukimTable extends Migration
      */
     public function up()
     {
-        Schema::create('mukim', function (Blueprint $table) {
+        Schema::create('status_bicara', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_daerah');
-            $table->integer('id_wilayah');
             $table->string('nama');
-            $table->timestamps()->nullable();
+            $table->string('kod');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +28,6 @@ class CreateMukimTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mukim');
+        Schema::dropIfExists('status_bicara');
     }
 }
