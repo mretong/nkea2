@@ -10,15 +10,11 @@ class Negeri extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['nama','kod'];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function blok()
     {
     	return $this->belongsToMany('App\Blok');
     }
 
-    public function blok()
-    {
-    	return $this->belongsToMany('App\Blok');
-    }
 }

@@ -18,7 +18,7 @@ class CreateDaerahTable extends Migration
             $table->integer('negeri_id');
             $table->string('nama');
             $table->string('kod');
-            $table->timestamps()->nullable();
+            $table->nullableTimestamps();
         });
     }
 

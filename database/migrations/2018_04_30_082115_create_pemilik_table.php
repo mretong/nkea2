@@ -25,7 +25,7 @@ class CreatePemilikTable extends Migration
             $table->date('tarikh_terima');
             $table->string('rujukan_jkptg');
             $table->string('rujukan_jps');
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 

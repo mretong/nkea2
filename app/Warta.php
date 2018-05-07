@@ -10,7 +10,7 @@ class Warta extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['blok_id','tarikh_warta','tarikh_luput','jilid_warta','no_warta','rujukan','catatan'];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function blok()
     {

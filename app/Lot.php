@@ -10,7 +10,7 @@ class Lot extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['mukim_id','no_lot','status_tanah','no_hakmilik','blok_id','pakej_id'];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function mukim()
     {

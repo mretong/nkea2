@@ -10,7 +10,7 @@ class Blok extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['fasa_id','lokaliti_id','nama','jum_lot_total','anggaran_kos'];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function fasa()
     {

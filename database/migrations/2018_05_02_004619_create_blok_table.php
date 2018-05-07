@@ -20,7 +20,7 @@ class CreateBlokTable extends Migration
             $table->string('nama');
             $table->double('jum_lot_total',8,2);
             $table->double('anggaran_kos',10,2);
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 

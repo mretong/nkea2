@@ -28,7 +28,7 @@ class CreateAduanTable extends Migration
             $table->string('catatan');
             $table->string('maklumbalas');
             $table->integer('status_aduan_id');
-            $table->timestamps()->nullable();
+            $table->nullableTimestamps();
         });
     }
 

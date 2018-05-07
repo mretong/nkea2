@@ -10,7 +10,7 @@ class Pembayaran extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['pemilik_id','bank_id','perbicaraan_id','no_akaun','kaedah_bayar_id','no_baucer','tarikh_baucer','no_cek','tarikh_cek','rujukan','catatan','status_id','rujukan_denda','tarikh_denda','attachment'];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function pemilik()
     {

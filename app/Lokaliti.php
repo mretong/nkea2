@@ -10,7 +10,7 @@ class Lokaliti extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['wilayah_id','nama','kod'];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function wilayah()
     {

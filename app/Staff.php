@@ -10,7 +10,7 @@ class Staff extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['nama','no_pekerja','ptj_id'];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function ptj()
     {

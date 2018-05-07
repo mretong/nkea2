@@ -22,7 +22,7 @@ class CreateWartaTable extends Migration
             $table->integer('no_warta');
             $table->string('rujukan');
             $table->string('catatan');
-            $table->timestamps()->nullable();
+            $table->nullableTimestamps();
         });
     }
 

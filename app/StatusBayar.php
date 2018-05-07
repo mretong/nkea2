@@ -10,5 +10,5 @@ class StatusBayar extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['nama','kod'];
 
-    public $timestamps = false;
+    public $timestamps = true;
 }

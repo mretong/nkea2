@@ -10,7 +10,7 @@ class Borangk extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['blok_id','lot_id','tarikh_k','tarikh_terima','rujukan_jkptg','rujukan_jps','rujukan_fail','attachment'];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function blok()
     {

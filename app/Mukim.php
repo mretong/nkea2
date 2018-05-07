@@ -10,7 +10,7 @@ class Mukim extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['id_daerah','id_wilayah','nama'];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function daerah()
     {

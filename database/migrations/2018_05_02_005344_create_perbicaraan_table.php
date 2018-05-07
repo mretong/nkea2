@@ -36,7 +36,7 @@ class CreatePerbicaraanTable extends Migration
             $table->double('kos_lain',12,2);
             $table->string('catatan');
             $table->string('jajaran');
-            $table->timestamps()->nullable();
+            $table->nullableTimestamps();
         });
     }
 

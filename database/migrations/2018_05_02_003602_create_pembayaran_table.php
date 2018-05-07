@@ -30,7 +30,7 @@ class CreatePembayaranTable extends Migration
             $table->string('rujukan_denda');
             $table->date('tarikh_denda');
             $table->string('attachment');
-            $table->timestamps()->nullable();
+            $table->nullableTimestamps();
         });
     }
 

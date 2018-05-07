@@ -18,7 +18,7 @@ class CreateLotPemilikTable extends Migration
             $table->integer('lot_id');
             $table->integer('pembayaran_id');
             $table->integer('status_bayar');
-            $table->timestamps()->nullable();
+            $table->nullableTimestamps();
         });
     }
 

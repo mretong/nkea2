@@ -8,12 +8,7 @@ class Wilayah extends Model
 {
     protected $table = 'wilayah';
     protected $primaryKey = 'id';
-    protected $fillable = ['daerah_id','nama','kod'];
+    protected $fillable = ['nama','kod'];
 
-    public $timestamps = false;
-
-    public function daerah()
-    {
-    	return $this->belongsTo('App\Daerah','daerah_id','id');
-    }
+    public $timestamps = true;
 }

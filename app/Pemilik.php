@@ -10,7 +10,7 @@ class Pemilik extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['lot_id','status_milikan_id','nama','no_kp','kategori_pampasan_id','pecahan','tarikh_h','tarikh_terima','rujukan_jkptg','rujukan_jps'];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function lot()
     {

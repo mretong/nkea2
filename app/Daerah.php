@@ -10,7 +10,7 @@ class Daerah extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['negeri_id','nama','kod'];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function negeri()
     {

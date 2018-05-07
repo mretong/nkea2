@@ -17,7 +17,7 @@ class CreateKategoriPampasanTable extends Migration
             $table->increments('id');
             $table->string('nama');
             $table->string('kod');
-            $table->timestamps()->nullable();
+            $table->nullableTimestamps();
         });
     }
 

@@ -21,7 +21,7 @@ class CreateLotTable extends Migration
             $table->string('no_hakmilik');
             $table->integer('blok_id');
             $table->integer('pakej_id');
-            $table->timestamps()->nullable();
+            $table->nullableTimestamps();
         });
     }
 

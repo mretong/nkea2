@@ -10,7 +10,7 @@ class Aduan extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['no_aduan','tarikh_terima','tarikh_selesai','masa_terima','staff_id','lot_id','blok_id','no_hakmilik','nama_pengadu','no_tel','catatan','maklumbalas','status_aduan_id'];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function staff()
     {

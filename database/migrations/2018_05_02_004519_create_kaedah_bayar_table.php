@@ -17,7 +17,7 @@ class CreateKaedahBayarTable extends Migration
             $table->increments('id');
             $table->string('nama');
             $table->string('kod');
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 

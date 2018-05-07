@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Offcanvas template for Bootstrap</title>
+    <title>NKEA</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -40,9 +40,10 @@
             <a class="nav-link" href="#">Switch account</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu Asas</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="{{ route('members.negeri.index') }}">Negeri</a>
+              <a class="dropdown-item" href="{{ route('members.daerah.index') }}">Daerah</a>
               <a class="dropdown-item" href="#">Another action</a>
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
@@ -62,7 +63,7 @@
       </div>
     </nav>
 
-    <div class="nav-scroller bg-white box-shadow">
+    <!-- <div class="nav-scroller bg-white box-shadow">
       <nav class="nav nav-underline">
         <a class="nav-link active" href="#">Dashboard</a>
         <a class="nav-link" href="#">
@@ -77,7 +78,7 @@
         <a class="nav-link" href="#">Link</a>
         <a class="nav-link" href="#">Link</a>
       </nav>
-    </div>
+    </div> -->
 
     <main role="main" class="container">
       <br />

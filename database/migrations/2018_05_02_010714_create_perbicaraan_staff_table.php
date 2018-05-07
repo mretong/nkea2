@@ -16,7 +16,7 @@ class CreatePerbicaraanStaffTable extends Migration
         Schema::create('perbicaraan_staff', function (Blueprint $table) {
             $table->integer('staff_id');
             $table->integer('perbicaraan_id');
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 

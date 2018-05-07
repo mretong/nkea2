@@ -16,7 +16,7 @@ class CreateBlokNegeriTable extends Migration
         Schema::create('blok_negeri', function (Blueprint $table) {
             $table->integer('blok_id');
             $table->integer('negeri_id');
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 

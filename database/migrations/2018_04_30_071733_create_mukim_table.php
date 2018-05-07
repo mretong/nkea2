@@ -18,7 +18,7 @@ class CreateMukimTable extends Migration
             $table->integer('daerah_id');
             $table->integer('wilayah_id');
             $table->string('nama');
-            $table->timestamps()->nullable();
+            $table->nullableTimestamps();
         });
     }
 
