@@ -1,50 +1,48 @@
 @extends('layouts.members')
 
-
 @section('content')
 
-<h1>Menu Wilayah</h1>
 
-<hr />
+	<a href="{{ route('members.wilayah.create') }}"><button class="btn btn-success">Tambah Wilayah</button></a><br /><br />
 
-<a href="{{ route('wilayah.create') }}" class="btn btn-warning"><b>Tambah Maklumat Wilayah Baru</b></a>
-<a href="{{ route('setting.index') }}" class="btn btn-warning" style="float: right;"><b>Menu Utama</b></a>
+	@include('messages._success')
 
-<hr />
+	<table class="table table-bordered table-striped">
+		<thead>
+			<th colspan="5"><h4>Senarai Wilayah</h4></th>
+		</thead>
+		<tr>
+			<td><center><strong>Bil</strong></center></td>
+			<td><center><strong>Nama Wilayah</strong></center></td>
+			<td><center><strong>Kod Wilayah</strong></center></td>
+			<td><center><strong>Daerah</strong></center></td>
+			<td><center><strong>Pilihan</strong></center></td>
+		</tr>
 
-<table class="table table-bordered table-striped">
-	<tr>
-		<td><center>Bil</td>
-		<td><center>Wilayah</td>
-		<td><center>Kod Wilayah</td>
-		<td><center>Daerah</td>
-		<td><center>Pilihan</td>
-	</tr>
+		@forelse ($territorys as $territory)
+		    <tr>
+				<td><center>{{ $loop->iteration }}</td>
+				<td><center>{{ $territory->nama }}</td>
+				<td><center>{{ $territory->kod }}</td>
+				<td><center>{{ $territory->wilayah->nama }}</td>
+				
+				<td><center>					
+					<a href="{{ route('members.wilayah.hapus', ['id' => $territory->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+				</center></td>
+								
+			</tr>	
+		@empty
+		    <tr>
+		    	<td colspan="5"><font color="red">No Data</font></td>
+		    </tr>
+		@endforelse
 
-	@foreach($wilayah as $territory)
-	<tr>
-		<td><center>{{ $loop->iteration }}</td>
-		<td><center>{{ $territory->nama }}</td>
-		<td><center>{{ $territory->kod }}</td>
-		<td><center>{{ $territory->daerah->nama }}</td>
+		@if($territorys->count() > 10)
+			<tr>
+				<td colspan="5" align="center">{{ $territorys->render() }}</td>
+			</tr>
+		@endif
 
-		
-		<td><center>
-				{!! Form::open(['route' => ['wilayah.destroy', $territory->id], 'method' => 'delete', 'onclick'=>'return myFunction();']) !!}
-					{!! Form::submit('Buang', ['class' => 'btn btn-danger']) !!}{!! Form::close() !!}
-				{!! Form::open(['route' => ['wilayah.show', $territory->id], 'method' => 'get']) !!}
-					{!! Form::submit('Kemaskini', ['class' => 'btn btn-primary']) !!}{!! Form::close() !!}
-
-					<script>
-						function myFunction()
-						{
-							if(!confirm("Are You Sure to Delete this Wilayah data from the system?"))
-							event.preventDefault();
-						}
-					</script>			
-	</tr>
-	@endforeach
-
-</table>
+	</table>
 
 @endsection

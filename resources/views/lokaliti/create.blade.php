@@ -2,34 +2,31 @@
 
 @section('content')
 
-<h1>Tambah Lokaliti</h1>
-<hr />
 
+	<a href="{{ route('members.lokaliti.index') }}"><button class="btn btn-success">Senarai Lokaliti</button></a><br /><br />
 
-{!! Form::open(['route' => 'lokaliti.store']) !!}
+	@include('messages._formErrors')
 
-	<div class="form-group row">
-		{!! Form::label('nama', 'Nama PPK', ['class'=>'form control col-sm-2']) !!}
-		{!! Form::text('nama','',['class'=>'form-control col-sm-6']) !!}
-	</div>
+	{!! Form::open(['route' => 'members.lokaliti.create', 'method' => 'post']) !!}
+	<table class="table table-bordered table-striped">
+		<tr>
+			<thead><th colspan="2">Tambah Lokaliti</th></thead>
+		</tr>
+		<tr>
+			<td>{!! Form::label('nama', 'Wilayah', ['class'=>'col-sm-6']) !!}</td>
+			<td>{{ Form::select('wilayah_id', $territorys, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Wilayah']) }}</td>
+		</tr>
+		<tr>
+			<td width="27%">{!! Form::label('nama', 'Nama Lokaliti', ['class'=>'form control col-sm-6']) !!}</td>
+			<td>{!! Form::text('nama','',['class'=>'form-control col-sm-6']) !!}</td>
+		</tr>
+		<tr>
+			<td>{!! Form::label('kod', 'Kod Lokaliti', ['class'=>'col-sm-6']) !!}</td>
+			<td>{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right">{{ Form::submit('Tambah Lokaliti', ['class' => 'btn btn-primary']) }}</td>
+		</tr>
+	{!! Form::close() !!}
 
-	<div class="form-group row">
-		{!! Form::label('kod', 'Kod PPK', ['class'=>'form control col-sm-2']) !!}
-		{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}
-	</div>
-
-	<div class="form-group row">
-		{!! Form::label('wilayah', 'Wilayah', ['class'=>'form control col-sm-2']) !!}
-		{!! Form::select('id_wilayah',$wilayah, null, ['class'=>'form-control col-sm-6']) !!}
-	</div>
-
-
-	<div class="form-group">
-		{!! Form::submit('Tambah Lokaliti', ['class' => 'btn btn-primary']) !!}
-		[<a href="{{ route('lokaliti.index') }}">Kembali</a>]
-	</div>
-
-{!! Form::close() !!}
-
-<hr />
 @endsection

@@ -2,34 +2,31 @@
 
 @section('content')
 
-<h1>Tambah Mukim</h1>
-<hr />
 
+	<a href="{{ route('members.mukim.index') }}"><button class="btn btn-success">Senarai Mukim</button></a><br /><br />
 
-{!! Form::open(['route' => 'mukim.store']) !!}
+	@include('messages._formErrors')
 
-	<div class="form-group row">
-		{!! Form::label('nama', 'Nama Mukim', ['class'=>'form control col-sm-2']) !!}
-		{!! Form::text('nama','',['class'=>'form-control col-sm-6']) !!}
-	</div>
+	{!! Form::open(['route' => 'members.mukim.create', 'method' => 'post']) !!}
+	<table class="table table-bordered table-striped">
+		<tr>
+			<thead><th colspan="2">Tambah Mukim</th></thead>
+		</tr>
+		<tr>
+			<td>{!! Form::label('nama', 'Daerah', ['class'=>'col-sm-6']) !!}</td>
+			<td>{{ Form::select('daerah_id', $district, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Daerah']) }}</td>
+		</tr>
+		<tr>
+			<td width="27%">{!! Form::label('nama', 'Nama Mukim', ['class'=>'form control col-sm-6']) !!}</td>
+			<td>{!! Form::text('nama','',['class'=>'form-control col-sm-6']) !!}</td>
+		</tr>
+		<tr>
+			<td>{!! Form::label('kod', 'Kod Mukim', ['class'=>'col-sm-6']) !!}</td>
+			<td>{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right">{{ Form::submit('Tambah Mukim', ['class' => 'btn btn-primary']) }}</td>
+		</tr>
+	{!! Form::close() !!}
 
-	<div class="form-group row">
-		{!! Form::label('daerah', 'Daerah', ['class'=>'form control col-sm-2']) !!}
-		{!! Form::select('id_daerah',$daerah, null, ['class'=>'form-control col-sm-6']) !!}
-	</div>
-
-	<div class="form-group row">
-		{!! Form::label('wilayah', 'Wilayah', ['class'=>'form control col-sm-2']) !!}
-		{!! Form::select('id_wilayah',$wilayah, null, ['class'=>'form-control col-sm-6']) !!}
-	</div>
-
-
-	<div class="form-group">
-		{!! Form::submit('Tambah Mukim', ['class' => 'btn btn-primary']) !!}
-		[<a href="{{ route('mukim.index') }}">Kembali</a>]
-	</div>
-
-{!! Form::close() !!}
-
-<hr />
 @endsection

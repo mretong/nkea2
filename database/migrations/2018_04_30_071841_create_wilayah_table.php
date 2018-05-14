@@ -17,6 +17,7 @@ class CreateWilayahTable extends Migration
             $table->increments('id');
             $table->string('nama');
             $table->string('kod');
+            $table->integer('daerah_id');
             $table->nullableTimestamps();
         });
     }

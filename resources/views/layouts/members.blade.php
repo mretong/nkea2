@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>NKEA</title>
+    <title>SRPTN - MADA</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -20,7 +20,7 @@
   <body class="bg-light">
 
     <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">NKEA</a>
+      <a class="navbar-brand" href="{{ route('home') }}">SRPT-NKEA</a>
       <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -28,24 +28,33 @@
       <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{ route('members.warta.index') }}">Warta</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Notifications</a>
+            <a class="nav-link" href="{{ route('members.bicara.index') }}">Perbicaraan</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
+            <a class="nav-link" href="#">Borang-H</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Switch account</a>
+            <a class="nav-link" href="#">Borang-K</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu Asas</a>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu Asas</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="{{ route('members.negeri.index') }}">Negeri</a>
               <a class="dropdown-item" href="{{ route('members.daerah.index') }}">Daerah</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="{{ route('members.wilayah.index') }}">Wilayah</a>
+              <a class="dropdown-item" href="{{ route('members.mukim.index') }}">Mukim</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Laporan</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Negeri</a>
+              <a class="dropdown-item" href="#">Daerah</a>
+              <a class="dropdown-item" href="#">Wilayah</a>
+              <a class="dropdown-item" href="#">Mukim</a>
             </div>
           </li>
         </ul>

@@ -1,49 +1,46 @@
 @extends('layouts.members')
 
-
 @section('content')
 
-<h1>Menu Mukim</h1>
 
-<hr />
+	<a href="{{ route('members.mukim.create') }}"><button class="btn btn-success">Tambah Mukim</button></a><br /><br />
 
-<a href="{{ route('mukim.create') }}" class="btn btn-warning"><b>Tambah Maklumat Mukim Baru</b></a>
-<a href="{{ route('setting.index') }}" class="btn btn-warning" style="float: right;"><b>Menu Utama</b></a> 
+	@include('messages._success')
 
-<hr />
+	<table class="table table-bordered table-striped">
+		<thead>
+			<th colspan="4"><h4>Senarai Mukim</h4></th>
+		</thead>
+		<tr>
+			<td><center><strong>Bil</strong></center></td>
+			<td><center><strong>Nama</strong></center></td>
+			<td><center><strong>Daerah</strong></center></td>
+			<td><center><strong>Wilayah</strong></center></td>
+			<td><center><strong>Pilihan</strong></center></td>
+		</tr>
 
-<table class="table table-bordered table-striped">
-	<tr>
-		<td><center>Bil</td>
-		<td><center>Nama</td>
-		<td><center>Daerah</td>
-		<td><center>Wilayah</td>
-		<td><center>Pilihan</td>
-	</tr>
+		@forelse ($stays as $stay)
+		    <tr>
+				<td><center>{{ $loop->iteration }}</td>
+				<td><center>{{ $stay->nama }}</td>
+				<td><center>{{ $stay->daerah->nama }}</td>
+				<td><center>{{ $stay->wilayah->nama }}</td>
+				
+				<td><center><a href="{{ route('members.mukim.hapus', ['id' => $stay->id]) }}"><button class="btn btn-danger">Hapus</button></a></center></td>
+								
+			</tr>	
+		@empty
+		    <tr>
+		    	<td colspan="4"><font color="red">No Data</font></td>
+		    </tr>
+		@endforelse
 
-	@foreach($mukim as $stay)
-	<tr>
-		<td><center>{{ $loop->iteration }}</td>
-		<td><center>{{ $stay->nama }}</td>
-		<td><center>{{ $stay->daerah->nama }}</td>
-		<td><center>{{ $stay->wilayah->nama }}</td>
+		@if($stays->count() > 10)
+			<tr>
+				<td colspan="4" align="center">{{ $stays->render() }}</td>
+			</tr>
+		@endif
 
-		<td><center>
-				{!! Form::open(['route' => ['mukim.destroy', $stay->id], 'method' => 'delete', 'onclick'=>'return myFunction();']) !!}
-					{!! Form::submit('Buang', ['class' => 'btn btn-danger']) !!}{!! Form::close() !!}
-				{!! Form::open(['route' => ['mukim.show', $stay->id], 'method' => 'get']) !!}
-					{!! Form::submit('Kemaskini', ['class' => 'btn btn-primary']) !!}{!! Form::close() !!}
-
-					<script>
-						function myFunction()
-						{
-							if(!confirm("Are You Sure to Delete this data from the system?"))
-							event.preventDefault();
-						}
-					</script>		
-	</tr>
-	@endforeach
-
-</table>
+	</table>
 
 @endsection

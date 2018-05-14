@@ -1,46 +1,48 @@
 @extends('layouts.members')
+
 @section('content')
 
-<h1>Lokaliti Menu</h1>
-<hr />
-<a href=" {{ route('lokaliti.create') }} " class="btn btn-warning"><b>Tambah Lokaliti Baru</b></a>
-<a href="{{ route('setting.index') }}" class="btn btn-warning" style="float: right;"><b>Menu Utama</b></a>
-<hr />
 
-<table class="table table-bordered table-striped">
-	<tr>
-		<td><center>Bil</td>
-		<td><center>Nama Lokaliti</td>
-		<td><center>Kod Lokaliti</td>
-		<td><center>Wilayah</td>
-		<td><center>Pilihan</td>
-	</tr>
+	<a href="{{ route('members.lokaliti.create') }}"><button class="btn btn-success">Tambah Lokaliti</button></a><br /><br />
 
-	@foreach($lokaliti as $ptj)
-	<tr>
-		<td><center>{{ $loop->iteration }}</td>
-		<td><center>{{ $ptj->nama }}</td>
-		<td><center>{{ $ptj->kod }}</td>
-		<td><center>{{ $ptj->wilayah->nama }}</td>
+	@include('messages._success')
 
-		<td><center>
-				{!! Form::open(['route' => ['lokaliti.destroy', $ptj->id], 'method' => 'delete', 'onclick'=>'return myFunction();']) !!}
-					{!! Form::submit('Buang', ['class' => 'btn btn-danger']) !!}{!! Form::close() !!}
-				{!! Form::open(['route' => ['lokaliti.show', $ptj->id], 'method' => 'get']) !!}
-					{!! Form::submit('Kemaskini', ['class' => 'btn btn-primary']) !!}{!! Form::close() !!}
+	<table class="table table-bordered table-striped">
+		<thead>
+			<th colspan="5"><h4>Senarai Lokaliti</h4></th>
+		</thead>
+		<tr>
+			<td><center><strong>Bil</strong></center></td>
+			<td><center><strong>Nama Lokaliti</strong></center></td>
+			<td><center><strong>Kod Lokaliti</strong></center></td>
+			<td><center><strong>Wilayah</strong></center></td>
+			<td><center><strong>Pilihan</strong></center></td>
+		</tr>
 
-					<script>
-						function myFunction()
-						{
-							if(!confirm("Are You Sure to Delete this data from the system?"))
-							event.preventDefault();
-						}
-					</script>		
-	</tr>
-	@endforeach
-	<tr>
-		<td colspan="5" align="center">{!! $lokaliti->render() !!}</td>
-	</tr>
-</table>
+		@forelse ($locals as $local)
+		    <tr>
+				<td><center>{{ $loop->iteration }}</td>
+				<td><center>{{ $local->nama }}</td>
+				<td><center>{{ $local->kod }}</td>
+				<td><center>{{ $local->wilayah->nama }}</td>
+				
+				<td><center>					
+					<a href="{{ route('members.lokaliti.hapus', ['id' => $local->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+				</center></td>
+								
+			</tr>	
+		@empty
+		    <tr>
+		    	<td colspan="5"><font color="red">No Data</font></td>
+		    </tr>
+		@endforelse
+
+		@if($locals->count() > 10)
+			<tr>
+				<td colspan="5" align="center">{{ $locals->render() }}</td>
+			</tr>
+		@endif
+
+	</table>
 
 @endsection

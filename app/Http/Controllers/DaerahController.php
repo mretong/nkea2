@@ -56,7 +56,6 @@ class DaerahController extends Controller
             Session::flash('message', 'Gagal. Data gagal ditambah.');
 
         return redirect()->route('members.daerah.index');
-
     }
 
     public function hapus($id) {
