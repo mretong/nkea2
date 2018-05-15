@@ -19,16 +19,16 @@
 			<td><center><strong>Pilihan</strong></center></td>
 		</tr>
 
-		@forelse ($reports as $report)
+		@forelse ($complaints as $complaint)
 		    <tr>
 				<td><center>{{ $loop->iteration }}</td>
-				<td><center>{{ $report->tarikh_terima }}</td>
-				<td><center>{{ $report->lot_id }}</td>
-				<td><center>{{ $report->status_aduan_id }}</td>
+				<td><center>{{ $complaint->tarikh_terima }}</td>
+				<td><center>{{ $complaint->lot_id }}</td>
+				<td><center>{{ $complaint->status_aduan_id }}</td>
 				
 				<td><center>					
 					<a href="#"><button class="btn btn-primary">Kemaskini</button></a>
-					<a href="{{ route('members.aduan.hapus', ['id' => $aduan->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+					<a href="{{ route('members.aduan.hapus', ['id' => $complaint->id]) }}"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
 								
 			</tr>	
@@ -38,9 +38,9 @@
 		    </tr>
 		@endforelse
 
-		@if($reports->count() > 10)
+		@if($complaints->count() > 10)
 			<tr>
-				<td colspan="5" align="center">{{ $reports->render() }}</td>
+				<td colspan="5" align="center">{{ $complaints->render() }}</td>
 			</tr>
 		@endif
 

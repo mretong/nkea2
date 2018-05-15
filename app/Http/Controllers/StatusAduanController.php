@@ -3,32 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Aduan;
-use App\Blok;
-use App\Lot;
-use App\Staff;
 use App\StatusAduan;
 
 use Session;
 use Validator;
 
-class AduanController extends Controller
+class StatusAduanController extends Controller
 {
     public function index()
     {
-    	$complaints = Aduan::paginate(10);
+    	$comps = StatusAduan::paginate(10);
 
-    	return view('aduan.index',compact('complaints'));
+    	return view('status_aduan.index', compact('comps'));
     }
 
-    public function create()
-    {
-    	$blok = Blok::pluck('nama','id');
-    	$lot = Lot::pluck('no_lot','no_hakmilik');
-    	$staff = Staff::pluck('nama','id');
-    	$status = StatusAduan::pluck('nama','id');
+    public function create() {
 
-    	return view('aduan.create',compact('blok','lot','staff','status'));
+    	return view('status_aduan.create');
     }
 
     public function createPost(Request $request) {
@@ -39,12 +30,12 @@ class AduanController extends Controller
     	]);
 
     	if($validation->fails()) {
-    		return redirect()->route('members.blok.create')
+    		return redirect()->route('members.status_aduan.create')
     			->withErrors($validation)
     			->withInputs();
     	}
 
-    	$state = Aduan::create([
+    	$state = StatusAduan::create([
     			'nama'	=> strtoupper($request->get('nama')),
     			'kod'	=> strtoupper($request->get('kod'))
     		]);
@@ -54,13 +45,17 @@ class AduanController extends Controller
     	else
     		Session::flash('message', 'Gagal. Data gagal ditambah.');
 
-    	return redirect()->route('members.blok.index');
+    	return redirect()->route('members.status_aduan.index');
 
     }
 
     public function hapus($id) {
 
-    	$state = Aduan::findOrFail($id)->delete();
+    	$state = StatusAduan::findOrFail($id)->delete();
+
+    	// delete jugak daerah
+    	$daerah = Daerah::where('negeri_id', $id)->delete();
+
 
     	if($state)
     		Session::flash('message', 'Berjaya. Data telah dihapus.');
@@ -68,6 +63,6 @@ class AduanController extends Controller
     		Session::flash('message', 'Gagal. Data gagal dihapus.');
 
 
-    	return redirect()->route('members.blok.index');
+    	return redirect()->route('members.status_aduan.index');
     }
 }

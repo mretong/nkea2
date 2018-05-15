@@ -34,7 +34,7 @@
             <a class="nav-link" href="{{ route('members.bicara.index') }}">Perbicaraan</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Borang-H</a>
+            <a class="nav-link" href="{{ route('members.borangh.index') }}">Borang-H</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('members.borangk.index') }}">Borang-K</a>
@@ -54,6 +54,7 @@
               <a class="dropdown-item" href="{{ route('members.pakej.index') }}">Pakej</a>
               <a class="dropdown-item" href="{{ route('members.blok.index') }}">Blok</a>
               <a class="dropdown-item" href="{{ route('members.lot.index') }}">Lot</a>
+              <a class="dropdown-item" href="{{ route('members.bank.index') }}">Bank</a>
             </div>
           </li>
           <li class="nav-item dropdown">

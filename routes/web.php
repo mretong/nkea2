@@ -308,4 +308,69 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 	]);
 
 
+	//Borang-H
+	Route::get('/borangh', [
+		'as'	=>	'borangh.index',
+		'uses'	=>	'BoranghController@index'
+	]);
+
+	Route::get('/borangh/create', [
+		'as'	=>	'borangh.create',
+		'uses'	=>	'BoranghController@create'
+	]);
+
+	Route::post('/borangh/create', [
+		'as'	=>	'borangh.createPost',
+		'uses'	=>	'BoranghController@createPost'
+	]);
+
+	Route::get('/borangh/hapus/{id}', [
+		'as'	=>	'borangh.hapus',
+		'uses'	=>	'BoranghController@hapus'
+	]);
+
+
+	//Bank
+	Route::get('/bank', [
+		'as'	=>	'bank.index',
+		'uses'	=>	'BankController@index'
+	]);
+
+	Route::get('/bank/create', [
+		'as'	=>	'bank.create',
+		'uses'	=>	'BankController@create'
+	]);
+
+	Route::post('/bank/create', [
+		'as'	=>	'bank.createPost',
+		'uses'	=>	'BankController@createPost'
+	]);
+
+	Route::get('/bank/hapus/{id}', [
+		'as'	=>	'bank.hapus',
+		'uses'	=>	'BankController@hapus'
+	]);
+
+	//Status Aduan
+	Route::get('/status_aduan', [
+		'as'	=>	'status_aduan.index',
+		'uses'	=>	'StatusAduanController@index'
+	]);
+
+	Route::get('/status_aduan/create', [
+		'as'	=>	'status_aduan.create',
+		'uses'	=>	'StatusAduanController@create'
+	]);
+
+	Route::post('/status_aduan/create', [
+		'as'	=>	'status_aduan.createPost',
+		'uses'	=>	'StatusAduanController@createPost'
+	]);
+
+	Route::get('/status_aduan/hapus/{id}', [
+		'as'	=>	'status_aduan.hapus',
+		'uses'	=>	'StatusAduanController@hapus'
+	]);
+
+
 }); // end of auth group
