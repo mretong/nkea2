@@ -3,7 +3,7 @@
 @section('content')
 
 
-	<a href="{{ route('members.blok.create') }}"><button class="btn btn-success">Tambah Aduan</button></a><br /><br />
+	<a href="{{ route('members.aduan.create') }}"><button class="btn btn-success">Tambah Aduan</button></a><br /><br />
 
 	@include('messages._success')
 
@@ -28,7 +28,7 @@
 				
 				<td><center>					
 					<a href="#"><button class="btn btn-primary">Kemaskini</button></a>
-					<a href="{{ route('members.blok.hapus', ['id' => $blok->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+					<a href="{{ route('members.aduan.hapus', ['id' => $aduan->id]) }}"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
 								
 			</tr>	

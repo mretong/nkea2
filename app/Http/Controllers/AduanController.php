@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Aduan;
 use App\Blok;
 use App\Lot;
+use App\Staff;
+use App\StatusAduan;
 
 use Session;
 use Validator;
@@ -23,8 +25,10 @@ class AduanController extends Controller
     {
     	$blok = Blok::pluck('nama','id');
     	$lot = Lot::pluck('no_lot','no_hakmilik');
+    	$staff = Staff::pluck('nama','id');
+    	$status = StatusAduan::pluck('nama','id');
 
-    	return view('aduan.create',compact('blok','lot'));
+    	return view('aduan.create',compact('blok','lot','staff','status'));
     }
 
     public function createPost(Request $request) {
