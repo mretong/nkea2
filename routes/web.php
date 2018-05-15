@@ -263,5 +263,26 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'uses'	=>	'PerbicaraanController@hapus'
 	]);
 
+	//Borang-K
+	Route::get('/borangk', [
+		'as'	=>	'borangk.index',
+		'uses'	=>	'BorangkController@index'
+	]);
+
+	Route::get('/borangk/create', [
+		'as'	=>	'borangk.create',
+		'uses'	=>	'BorangkController@create'
+	]);
+
+	Route::post('/borangk/create', [
+		'as'	=>	'borangk.createPost',
+		'uses'	=>	'BorangkController@createPost'
+	]);
+
+	Route::get('/borangk/hapus/{id}', [
+		'as'	=>	'borangk.hapus',
+		'uses'	=>	'BorangkController@hapus'
+	]);
+
 
 }); // end of auth group

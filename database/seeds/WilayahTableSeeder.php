@@ -13,23 +13,27 @@ class WilayahTableSeeder extends Seeder
     public function run()
     {
     	Wilayah::create([
-    		'nama'	=> 'Wilayah 1',
-    		'kod'	=> 'W1'
+    		'nama'	    => 'Wilayah 1',
+    		'kod'	    => 'W1',
+            'daerah_id' => 1
     	]);
 
     	Wilayah::create([
-    		'nama'	=> 'Wilayah 2',
-    		'kod'	=> 'W2'
+    		'nama'	    => 'Wilayah 2',
+    		'kod'	    => 'W2',
+            'daerah_id' =>  3
     	]);
 
     	Wilayah::create([
-    		'nama'	=> 'Wilayah 3',
-    		'kod'	=> 'W3'
+    		'nama'	    => 'Wilayah 3',
+    		'kod'	    => 'W3',
+            'daerah_id' =>  5
     	]);
 
     	Wilayah::create([
-    		'nama'	=> 'Wilayah 4',
-    		'kod'	=> 'W4'
+    		'nama'	    => 'Wilayah 4',
+    		'kod'	    => 'W4',
+            'daerah_id' =>  7
     	]);
 
 

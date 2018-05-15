@@ -24,7 +24,7 @@
 				<td><center>{{ $loop->iteration }}</td>
 				<td><center>{{ $territory->nama }}</td>
 				<td><center>{{ $territory->kod }}</td>
-				<td><center>{{ $territory->wilayah->nama }}</td>
+				<td><center>{{ $territory->daerah->nama }}</td>
 				
 				<td><center>					
 					<a href="{{ route('members.wilayah.hapus', ['id' => $territory->id]) }}"><button class="btn btn-danger">Hapus</button></a>

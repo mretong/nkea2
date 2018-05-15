@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Mukim;
 use App\Daerah;
+use App\Wilayah;
 use Validator;
 use Session;
 
@@ -20,8 +21,9 @@ class MukimController extends Controller
     public function create() {
 
     	$district = Daerah::pluck('nama', 'id');
+        $territory = Wilayah::pluck('nama','id');
 
-    	return view('mukim.create', compact('district'));
+    	return view('mukim.create', compact('district','territory'));
     }
 
     public function createPost(Request $request) {
@@ -39,8 +41,8 @@ class MukimController extends Controller
                 ->withInput();                
         }
 
-        $district = Daerah::create([
-            'negeri_id' 	=> strtoupper($request->get('daerah_id')),
+        $district = Mukim::create([
+            'daerah_id' 	=> strtoupper($request->get('daerah_id')),
             'wilayah_id' 	=> strtoupper($request->get('wilayah_id')),
             'nama'      	=> strtoupper($request->get('nama')),
         ]);

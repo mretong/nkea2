@@ -3,24 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Wilayah;
-use App\Daerah;
-use Validator;
-use Session;
+use App\Borangk;
+use App\Blok;
 
-class WilayahController extends Controller
+
+class BorangkController extends Controller
 {
     public function index()
     {
-    	$territorys = Wilayah::paginate(10);
-
-    	return view('wilayah.index', compact('territorys'));
+    	$kforms = Borangk::paginate(10);
+    	return view('borangk.index',compact('kforms'));
     }
 
-    public function create() {
+    public function create()
+    {
+    	$blok = Blok::pluck('nama','id');
 
-        $district = Daerah::pluck('nama','id');
-    	return view('wilayah.create',compact('district'));
+    	return view('borangk.create',compact('blok'));
     }
 
     public function createPost(Request $request) {
@@ -31,32 +30,28 @@ class WilayahController extends Controller
     	]);
 
     	if($validation->fails()) {
-    		return redirect()->route('members.wilayah.create')
+    		return redirect()->route('members.borangk.create')
     			->withErrors($validation)
     			->withInputs();
     	}
 
-    	$state = Wilayah::create([
+    	$kform = Borangk::create([
     			'nama'	=> strtoupper($request->get('nama')),
     			'kod'	=> strtoupper($request->get('kod'))
     		]);
 
-    	if($state) 
+    	if($kform) 
     		Session::flash('message', 'Berjaya. Data telah ditambah.');
     	else
     		Session::flash('message', 'Gagal. Data gagal ditambah.');
 
-    	return redirect()->route('members.negeri.index');
+    	return redirect()->route('members.borangk.index');
 
     }
 
     public function hapus($id) {
 
-    	$state = Wilayah::findOrFail($id)->delete();
-
-    	// delete jugak daerah
-    	$daerah = Daerah::where('negeri_id', $id)->delete();
-
+    	$state = Borangk::findOrFail($id)->delete();
 
     	if($state)
     		Session::flash('message', 'Berjaya. Data telah dihapus.');
@@ -64,6 +59,6 @@ class WilayahController extends Controller
     		Session::flash('message', 'Gagal. Data gagal dihapus.');
 
 
-    	return redirect()->route('members.negeri.index');
+    	return redirect()->route('members.borangk.index');
     }
 }

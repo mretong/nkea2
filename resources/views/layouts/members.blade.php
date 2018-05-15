@@ -37,7 +37,7 @@
             <a class="nav-link" href="#">Borang-H</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Borang-K</a>
+            <a class="nav-link" href="{{ route('members.borangk.index') }}">Borang-K</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu Asas</a>
@@ -46,6 +46,11 @@
               <a class="dropdown-item" href="{{ route('members.daerah.index') }}">Daerah</a>
               <a class="dropdown-item" href="{{ route('members.wilayah.index') }}">Wilayah</a>
               <a class="dropdown-item" href="{{ route('members.mukim.index') }}">Mukim</a>
+              <a class="dropdown-item" href="{{ route('members.lokaliti.index') }}">Lokaliti</a>
+              <a class="dropdown-item" href="{{ route('members.fasa.index') }}">Fasa</a>
+              <a class="dropdown-item" href="{{ route('members.pakej.index') }}">Pakej</a>
+              <a class="dropdown-item" href="{{ route('members.blok.index') }}">Blok</a>
+              <a class="dropdown-item" href="{{ route('members.lot.index') }}">Lot</a>
             </div>
           </li>
           <li class="nav-item dropdown">
