@@ -39,6 +39,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('members.borangk.index') }}">Borang-K</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('members.aduan.index') }}">Aduan</a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu Asas</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -56,10 +59,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Laporan</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Negeri</a>
-              <a class="dropdown-item" href="#">Daerah</a>
-              <a class="dropdown-item" href="#">Wilayah</a>
-              <a class="dropdown-item" href="#">Mukim</a>
+              <a class="dropdown-item" href="#">Laporan 1</a>
             </div>
           </li>
         </ul>

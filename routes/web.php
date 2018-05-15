@@ -263,6 +263,7 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'uses'	=>	'PerbicaraanController@hapus'
 	]);
 
+
 	//Borang-K
 	Route::get('/borangk', [
 		'as'	=>	'borangk.index',
@@ -282,6 +283,28 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 	Route::get('/borangk/hapus/{id}', [
 		'as'	=>	'borangk.hapus',
 		'uses'	=>	'BorangkController@hapus'
+	]);
+
+
+	//Aduan
+	Route::get('/aduan', [
+		'as'	=>	'aduan.index',
+		'uses'	=>	'AduanController@index'
+	]);
+
+	Route::get('/aduan/create', [
+		'as'	=>	'aduan.create',
+		'uses'	=>	'AduanController@create'
+	]);
+
+	Route::post('/aduan/create', [
+		'as'	=>	'aduan.createPost',
+		'uses'	=>	'AduanController@createPost'
+	]);
+
+	Route::get('/aduan/hapus/{id}', [
+		'as'	=>	'aduan.hapus',
+		'uses'	=>	'AduanController@hapus'
 	]);
 
 
