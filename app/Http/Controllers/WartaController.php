@@ -7,6 +7,9 @@ use App\Warta;
 use App\Blok;
 use App\Pakej;
 
+use Session;
+use Validator;
+
 class WartaController extends Controller
 {
     public function index()
