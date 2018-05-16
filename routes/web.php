@@ -351,6 +351,7 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'uses'	=>	'BankController@hapus'
 	]);
 
+	
 	//Status Aduan
 	Route::get('/status_aduan', [
 		'as'	=>	'status_aduan.index',
@@ -370,6 +371,28 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 	Route::get('/status_aduan/hapus/{id}', [
 		'as'	=>	'status_aduan.hapus',
 		'uses'	=>	'StatusAduanController@hapus'
+	]);
+
+
+	//Status Milik
+	Route::get('/status_milik', [
+		'as'	=>	'status_milik.index',
+		'uses'	=>	'StatusMilikController@index'
+	]);
+
+	Route::get('/status_milik/create', [
+		'as'	=>	'status_milik.create',
+		'uses'	=>	'StatusMilikController@create'
+	]);
+
+	Route::post('/status_milik/create', [
+		'as'	=>	'status_milik.createPost',
+		'uses'	=>	'StatusMilikController@createPost'
+	]);
+
+	Route::get('/status_milik/hapus/{id}', [
+		'as'	=>	'status_milik.hapus',
+		'uses'	=>	'StatusMilikController@hapus'
 	]);
 
 
