@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Negeri;
 use App\Daerah;
+
 use Validator;
 use Session;
 
@@ -14,11 +15,6 @@ class DaerahController extends Controller
 
     	$districts = Daerah::paginate(10);
 
-    	// foreach($districts as $district) {
-    	// 	echo $district->nama . "<br />";
-    	// }
-
-    	// exit;
     	return view('daerah.index', compact('districts'));
     }
 
@@ -47,7 +43,7 @@ class DaerahController extends Controller
         $district = Daerah::create([
             'negeri_id' => strtoupper($request->get('negeri_id')),
             'nama'      => strtoupper($request->get('nama')),
-            'kod'      => strtoupper($request->get('kod')),
+            'kod'       => strtoupper($request->get('kod'))
         ]);
 
         if($district)

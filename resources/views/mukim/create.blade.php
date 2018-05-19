@@ -17,12 +17,12 @@
 			<td>{!! Form::text('nama','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('nama', 'Daerah', ['class'=>'col-sm-6']) !!}</td>
+			<td>{!! Form::label('daerah', 'Daerah', ['class'=>'col-sm-6']) !!}</td>
 			<td>{{ Form::select('daerah_id', $district, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Daerah']) }}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('nama', 'Wilayah', ['class'=>'col-sm-6']) !!}</td>
-			<td>{{ Form::select('wilayah_id', $territory, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Daerah']) }}</td>
+			<td>{!! Form::label('wilayah', 'Wilayah', ['class'=>'col-sm-6']) !!}</td>
+			<td>{{ Form::select('wilayah_id', $territory, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Wilayah']) }}</td>
 		</tr>
 		<tr>
 			<td colspan="2" align="right">{{ Form::submit('Tambah Mukim', ['class' => 'btn btn-primary']) }}</td>

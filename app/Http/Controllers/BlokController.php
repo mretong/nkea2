@@ -31,8 +31,12 @@ class BlokController extends Controller
     public function createPost(Request $request) {
 
     	$validation = Validator::make($request->all(), [
-    		'nama'	=> 'required|min:3',
-    		'kod'	=> 'required|min:3'
+    		'blok'	=> 'required|min:3',
+            'lot'   => 'required|min:1',
+            'kos'   => 'required|min:1',
+            'lokaliti_id'   => 'required|numeric',
+            'fasa_id'   => 'required|numeric',
+    		'pakej_id'	=> 'required|numeric'
     	]);
 
     	if($validation->fails()) {
@@ -42,8 +46,12 @@ class BlokController extends Controller
     	}
 
     	$state = Blok::create([
-    			'nama'	=> strtoupper($request->get('nama')),
-    			'kod'	=> strtoupper($request->get('kod'))
+                'nama'  => strtoupper($request->get('blok')),
+                'jum_lot_total'  => strtoupper($request->get('lot')),
+                'anggaran_kos'  => strtoupper($request->get('kos')),
+                'lokaliti_id'  => strtoupper($request->get('lokaliti_id')),
+    			'fasa_id'	=> strtoupper($request->get('fasa_id')),
+    			'pakej_id'	=> strtoupper($request->get('pakej_id'))
     		]);
 
     	if($state) 

@@ -29,8 +29,13 @@ class WartaController extends Controller
     public function createPost(Request $request) {
 
     	$validation = Validator::make($request->all(), [
-    		'nama'	=> 'required|min:3',
-    		'kod'	=> 'required|min:3'
+            'blok_id'   => 'required|numeric',
+            'pakej_id'   => 'required|numeric',
+            'tarikh_warta'   => 'required',
+            'jilid'   => 'required|min:2',
+            'no_warta'  => 'required|min:2',
+    		'rujukan'	=> 'required|min:2',
+            'catatan'  => 'required|min:2'
     	]);
 
     	if($validation->fails()) {
@@ -39,12 +44,17 @@ class WartaController extends Controller
     			->withInputs();
     	}
 
-    	$state = Blok::create([
-    			'nama'	=> strtoupper($request->get('nama')),
-    			'kod'	=> strtoupper($request->get('kod'))
+    	$warrant = Warta::create([
+    			'blok_id'	=> strtoupper($request->get('blok_id')),
+                'pakej_id'  => strtoupper($request->get('pakej_id')),
+                'tarikh_warta'  => strtoupper($request->get('tarikh_warta')),                   
+                'jilid_warta'  => strtoupper($request->get('jilid')),
+                'no_warta'  => strtoupper($request->get('no_warta')),
+                'rujukan'   => strtoupper($request->get('rujukan')),
+    			'catatan'	=> strtoupper($request->get('catatan'))
     		]);
 
-    	if($state) 
+    	if($warrant) 
     		Session::flash('message', 'Berjaya. Data telah ditambah.');
     	else
     		Session::flash('message', 'Gagal. Data gagal ditambah.');
@@ -55,9 +65,9 @@ class WartaController extends Controller
 
     public function hapus($id) {
 
-    	$state = Blok::findOrFail($id)->delete();
+    	$warrant = Warta::findOrFail($id)->delete();
 
-    	if($state)
+    	if($warrant)
     		Session::flash('message', 'Berjaya. Data telah dihapus.');
     	else
     		Session::flash('message', 'Gagal. Data gagal dihapus.');

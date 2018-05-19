@@ -16,6 +16,7 @@ class CreateWartaTable extends Migration
         Schema::create('warta', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('blok_id');
+            $table->integer('pakej_id');
             $table->date('tarikh_warta');
             $table->date('tarikh_luput');
             $table->string('jilid_warta');

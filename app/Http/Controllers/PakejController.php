@@ -26,7 +26,7 @@ class PakejController extends Controller
 
     	$validation = Validator::make($request->all(), [
     		'nama'	=> 'required|min:3',
-    		'kod'	=> 'required|min:3'
+    		'kod'	=> 'required|min:2'
     	]);
 
     	if($validation->fails()) {
@@ -35,12 +35,12 @@ class PakejController extends Controller
     			->withInputs();
     	}
 
-    	$state = Pakej::create([
+    	$pakej = Pakej::create([
     			'nama'	=> strtoupper($request->get('nama')),
     			'kod'	=> strtoupper($request->get('kod'))
     		]);
 
-    	if($state) 
+    	if($pakej) 
     		Session::flash('message', 'Berjaya. Data telah ditambah.');
     	else
     		Session::flash('message', 'Gagal. Data gagal ditambah.');
@@ -51,13 +51,13 @@ class PakejController extends Controller
 
     public function hapus($id) {
 
-    	$state = Pakej::findOrFail($id)->delete();
+    	$pakej = Pakej::findOrFail($id)->delete();
 
     	// delete jugak daerah
     	$daerah = Daerah::where('negeri_id', $id)->delete();
 
 
-    	if($state)
+    	if($pakej)
     		Session::flash('message', 'Berjaya. Data telah dihapus.');
     	else
     		Session::flash('message', 'Gagal. Data gagal dihapus.');

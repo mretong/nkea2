@@ -34,8 +34,15 @@ class AduanController extends Controller
     public function createPost(Request $request) {
 
     	$validation = Validator::make($request->all(), [
-    		'nama'	=> 'required|min:3',
-    		'kod'	=> 'required|min:3'
+            'aduan'  => 'required|min:3',
+            'staff_id'  => 'required|numeric',
+            'blok_id'  => 'required|numeric',
+            'no_lot'  => 'required|numeric',
+            'pengadu'  => 'required|min:3',
+            'no_tel'  => 'required|min:3',
+            'catatan'  => 'required|min:3',
+            'm_balas'  => 'required|min:3',
+    		'status_id'	=> 'required|numeric'
     	]);
 
     	if($validation->fails()) {
@@ -45,8 +52,18 @@ class AduanController extends Controller
     	}
 
     	$state = Aduan::create([
-    			'nama'	=> strtoupper($request->get('nama')),
-    			'kod'	=> strtoupper($request->get('kod'))
+                'no_aduan'  => strtoupper($request->get('aduan')),
+                'tarikh_terima'  => strtoupper($request->get('tarikh_aduan')),
+                'tarikh_selesai'  => strtoupper($request->get('tarikh_selesai')),
+                'masa_terima'  => strtoupper($request->get('masa')),
+                'staff_id'  => strtoupper($request->get('staff_id')),
+                'blok_id'  => strtoupper($request->get('blok_id')),
+                'lot_id'  => strtoupper($request->get('no_lot')),
+                'nama_pengadu'  => strtoupper($request->get('pengadu')),
+                'no_tel'  => strtoupper($request->get('no_tel')),
+                'catatan'  => strtoupper($request->get('catatan')),
+    			'maklumbalas'	=> strtoupper($request->get('m_balas')),
+    			'status_aduan_id'	=> strtoupper($request->get('status_id'))
     		]);
 
     	if($state) 

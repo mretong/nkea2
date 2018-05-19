@@ -14,24 +14,28 @@
 		</tr>
 		
 		<tr>
-			<td>{!! Form::label('nama', 'Blok', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::label('blok', 'Blok', ['class'=>'col-sm-8']) !!}</td>
 			<td>{{ Form::select('blok_id', $blok, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Blok']) }}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('nama', 'Mukim', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::label('mukim', 'Mukim', ['class'=>'col-sm-8']) !!}</td>
 			<td>{{ Form::select('mukim_id', $mukim, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Mukim']) }}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('kod', 'No.Lot', ['class'=>'col-sm-8']) !!}</td>
-			<td>{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}</td>
+			<td>{!! Form::label('lot', 'No.Lot', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::text('lot','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('kod', 'Hakmilik', ['class'=>'col-sm-8']) !!}</td>
-			<td>{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}</td>
+			<td>{!! Form::label('hakmilik', 'Hakmilik', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::text('hakmilik','',['class'=>'form-control col-sm-6']) !!}</td>
+		</tr>
+		<tr>
+			<td>{!! Form::label('status', 'Status Tanah', ['class'=>'col-sm-8']) !!}</td>
+			<td>{{ Form::select('status_id', $status, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Status Tanah']) }}</td>
 		</tr>
 		
 		<tr>
-			<td colspan="2" align="right">{{ Form::submit('Tambah Blok', ['class' => 'btn btn-primary']) }}</td>
+			<td colspan="2" align="right">{{ Form::submit('Tambah Lot', ['class' => 'btn btn-primary']) }}</td>
 		</tr>
 	{!! Form::close() !!}
 

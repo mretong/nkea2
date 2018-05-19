@@ -23,11 +23,11 @@
 		    <tr>
 				<td><center>{{ $loop->iteration }}</td>
 				<td><center>{{ $block->nama }}</td>
-				<td><center>{{ $block->kod }}</td>
-				<td><center>{{ $block->wilayah->nama }}</td>
+				<td><center>{{ $block->fasa->nama }}</td>
+				<td><center>{{ $block->lokaliti->nama }}</td>
 				
 				<td><center>					
-					<a href="{{ route('members.blok.hapus', ['id' => $blok->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+					<a href="{{ route('members.blok.hapus', ['id' => $block->id]) }}"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
 								
 			</tr>	

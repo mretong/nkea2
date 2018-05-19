@@ -8,7 +8,7 @@ class Perbicaraan extends Model
 {
     protected $table = 'perbicaraan';
     protected $primaryKey = 'id';
-    protected $fillable = ['tarikh_1','tarikh_2','tarikh_3','tarikh_4','tarikh_5','daerah_id','mukim_id','blok_id','lot_id','staff_id','status_id','bil_pemilik','luas_ambil','harga_tanah','wakil_mada','wakil_jps','bilangan_bicara','pampasan','kos_lain','catatan','jajaran'];
+    protected $fillable = ['tarikh_1','daerah_id','mukim_id','blok_id','lot_id','staff_id','status_id','bil_pemilik','luas_ambil','harga_tanah','wakil_mada','wakil_jps','bilangan_bicara','pampasan','kos_lain','catatan','jajaran'];
 
     public $timestamps = true;
 
@@ -24,22 +24,22 @@ class Perbicaraan extends Model
 
     public function blok()
     {
-    	return $this->hasOne('App\Blok','blok_id','id');
+    	return $this->belongsTo('App\Blok','blok_id','id');
     }
 
     public function lot()
     {
-    	return $this->hasMany('App\Lot','lot_id','id');
+    	return $this->belongsTo('App\Lot','lot_id','id');
     }
 
     public function staff()
     {
-    	return $this->belongsToMany('App\Staff');
+    	return $this->belongsTo('App\Staff','staff_id','id');
     }
 
     public function status()
     {
-    	return $this->hasOne('App\StatusBicara','status_id','id');
+    	return $this->belongsTo('App\StatusBicara','status_id','id');
     }
 
 

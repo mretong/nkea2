@@ -16,20 +16,18 @@
 			<td><center><strong>Blok</strong></center></td>
 			<td><center><strong>No. Warta</strong></center></td>
 			<td><center><strong>Tarikh Warta</strong></center></td>
-			<td><center><strong>Tarikh Luput</strong></center></td>
 			<td><center><strong>Pilihan</strong></center></td>
 		</tr>
 
 		@forelse ($warrants as $warrant)
 		    <tr>
 				<td><center>{{ $loop->iteration }}</td>
-				<td><center>{{ $warrant->blok }}</td>
+				<td><center>{{ $warrant->blok->nama }}</td>
 				<td><center>{{ $warrant->no_warta }}</td>
 				<td><center>{{ $warrant->tarikh_warta }}</td>
-				<td><center>{{ $warrant->tarikh_luput }}</td>
 				
 				<td><center>					
-					<a href="{{ route('members.warta.hapus', ['id' => $warta->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+					<a href="{{ route('members.warta.hapus', ['id' => $warrant->id]) }}"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
 								
 			</tr>	

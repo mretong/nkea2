@@ -8,7 +8,7 @@ class Lot extends Model
 {
     protected $table = 'lot';
     protected $primaryKey = 'id';
-    protected $fillable = ['mukim_id','no_lot','status_tanah','no_hakmilik','blok_id','pakej_id'];
+    protected $fillable = ['mukim_id','no_lot','status_milik_id','no_hakmilik','blok_id'];
 
     public $timestamps = true;
 
@@ -25,5 +25,10 @@ class Lot extends Model
     public function pakej()
     {
     	return $this->belongsTo('App\Pakej','pakej_id','id');
+    }
+
+    public function status()
+    {
+        return $this->belongsTo('App\StatusMilik','status_milik_id','id');
     }
 }

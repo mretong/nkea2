@@ -13,7 +13,7 @@
 			<thead><th colspan="2">Tambah Fasa</th></thead>
 		</tr>
 		<tr>
-			<td width="25%">{!! Form::label('nama', 'Nama Fasa', ['class'=>'form control col-sm-6']) !!}</td>
+			<td width="25%">{!! Form::label('fasa', 'Nama Fasa', ['class'=>'form control col-sm-6']) !!}</td>
 			<td>{!! Form::text('nama','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>

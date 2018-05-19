@@ -37,8 +37,22 @@ class PerbicaraanController extends Controller
     public function createPost(Request $request) {
 
     	$validation = Validator::make($request->all(), [
-    		'nama'	=> 'required|min:3',
-    		'kod'	=> 'required|min:3'
+            'daerah_id'  => 'required|numeric',
+            'mukim_id'  => 'required|numeric',
+            'blok_id'  => 'required|numeric',
+            'lot_id'  => 'required|numeric',
+            'pentadbir_id'  => 'required|numeric',
+            'status_id'  => 'required|numeric',
+            'bicara'  => 'required|min:1',
+            'luas'  => 'required|min:1',
+            'harga'  => 'required|min:1',
+            'tuan_tanah'  => 'required|min:1',
+            'pampasan'  => 'required|min:1',
+            'lain'  => 'required|min:1',
+            'mada_id'  => 'required|numeric',
+            'jps_id'  => 'required|numeric',
+    		'jajaran'	=> 'required|min:1',
+    		'catatan'	=> 'required|min:1'
     	]);
 
     	if($validation->fails()) {
@@ -47,12 +61,27 @@ class PerbicaraanController extends Controller
     			->withInputs();
     	}
 
-    	$state = Blok::create([
-    			'nama'	=> strtoupper($request->get('nama')),
-    			'kod'	=> strtoupper($request->get('kod'))
+    	$hears = Perbicaraan::create([
+                'daerah_id'  => strtoupper($request->get('daerah_id')),
+                'mukim_id'  => strtoupper($request->get('mukim_id')),
+                'blok_id'  => strtoupper($request->get('blok_id')),
+                'lot_id'  => strtoupper($request->get('lot_id')),
+                'tarikh_1'  => strtoupper($request->get('tarikh_bicara')),
+                'staff_id'  => strtoupper($request->get('pentadbir_id')),
+                'status_id'  => strtoupper($request->get('status_id')),
+                'bilangan_bicara'  => strtoupper($request->get('bicara')),
+                'luas_ambil'  => strtoupper($request->get('luas')),
+                'harga_tanah'  => strtoupper($request->get('harga')),
+                'bil_pemilik'  => strtoupper($request->get('tuan_tanah')),
+                'pampasan'  => strtoupper($request->get('pampasan')),
+                'kos_lain'  => strtoupper($request->get('lain')),
+                'wakil_mada'  => strtoupper($request->get('mada_id')),
+                'wakil_jps'  => strtoupper($request->get('jps_id')),
+    			'jajaran'	=> strtoupper($request->get('jajaran')),
+    			'catatan'	=> strtoupper($request->get('catatan'))
     		]);
 
-    	if($state) 
+    	if($hears) 
     		Session::flash('message', 'Berjaya. Data telah ditambah.');
     	else
     		Session::flash('message', 'Gagal. Data gagal ditambah.');
@@ -63,9 +92,9 @@ class PerbicaraanController extends Controller
 
     public function hapus($id) {
 
-    	$state = Blok::findOrFail($id)->delete();
+    	$hears = Perbicaraan::findOrFail($id)->delete();
 
-    	if($state)
+    	if($hears)
     		Session::flash('message', 'Berjaya. Data telah dihapus.');
     	else
     		Session::flash('message', 'Gagal. Data gagal dihapus.');

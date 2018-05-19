@@ -21,7 +21,7 @@
 			<td>{!! Form::text('nama','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('kod', 'Kod Daerah', ['class'=>'col-sm-6']) !!}</td>
+			<td>{!! Form::label('kod', 'Singkatan', ['class'=>'col-sm-6']) !!}</td>
 			<td>{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>

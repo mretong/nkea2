@@ -14,27 +14,27 @@
 		</tr>
 		
 		<tr>
-			<td width="27%">{!! Form::label('nama', 'Nama Blok', ['class'=>'form control col-sm-8']) !!}</td>
-			<td>{!! Form::text('nama','',['class'=>'form-control col-sm-6']) !!}</td>
+			<td width="27%">{!! Form::label('blok', 'Nama Blok', ['class'=>'form control col-sm-8']) !!}</td>
+			<td>{!! Form::text('blok','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('kod', 'Jumlah Lot Total', ['class'=>'col-sm-8']) !!}</td>
-			<td>{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}</td>
+			<td>{!! Form::label('lot', 'Jumlah Lot Total', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::text('lot','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('kod', 'Anggaran Kos', ['class'=>'col-sm-8']) !!}</td>
-			<td>{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}</td>
+			<td>{!! Form::label('kos', 'Anggaran Kos', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::text('kos','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('nama', 'Lokaliti', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::label('lokaliti', 'Lokaliti', ['class'=>'col-sm-8']) !!}</td>
 			<td>{{ Form::select('lokaliti_id', $lokaliti, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Lokaliti']) }}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('nama', 'Fasa', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::label('fasa', 'Fasa', ['class'=>'col-sm-8']) !!}</td>
 			<td>{{ Form::select('fasa_id', $fasa, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Fasa']) }}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('nama', 'Pakej', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::label('pakej', 'Pakej', ['class'=>'col-sm-8']) !!}</td>
 			<td>{{ Form::select('pakej_id', $pakej, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Pakej']) }}</td>
 		</tr>
 		<tr>

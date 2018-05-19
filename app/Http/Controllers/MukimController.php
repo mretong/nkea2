@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Mukim;
 use App\Daerah;
 use App\Wilayah;
+
 use Validator;
 use Session;
 
@@ -22,6 +23,7 @@ class MukimController extends Controller
 
     	$district = Daerah::pluck('nama', 'id');
         $territory = Wilayah::pluck('nama','id');
+
 
     	return view('mukim.create', compact('district','territory'));
     }
@@ -41,13 +43,13 @@ class MukimController extends Controller
                 ->withInput();                
         }
 
-        $district = Mukim::create([
+        $stay = Mukim::create([
             'daerah_id' 	=> strtoupper($request->get('daerah_id')),
             'wilayah_id' 	=> strtoupper($request->get('wilayah_id')),
-            'nama'      	=> strtoupper($request->get('nama')),
+            'nama'      	=> strtoupper($request->get('nama'))
         ]);
 
-        if($district)
+        if($stay)
             Session::flash('message', 'Berjaya. Data telah ditambah.');
         else
             Session::flash('message', 'Gagal. Data gagal ditambah.');
@@ -57,9 +59,9 @@ class MukimController extends Controller
 
     public function hapus($id) {
 
-        $stays = Mukim::findOrFail($id)->delete();
+        $stay = Mukim::findOrFail($id)->delete();
 
-        if($stays)
+        if($stay)
             Session::flash('message', 'Berjaya. Data telah dihapus.');
         else
             Session::flash('message', 'Gagal. Data gagal dihapus.');

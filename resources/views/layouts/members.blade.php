@@ -55,6 +55,8 @@
               <a class="dropdown-item" href="{{ route('members.blok.index') }}">Blok</a>
               <a class="dropdown-item" href="{{ route('members.lot.index') }}">Lot</a>
               <a class="dropdown-item" href="{{ route('members.bank.index') }}">Bank</a>
+              <a class="dropdown-item" href="{{ route('members.ptj.index') }}">PTJ</a>
+              <a class="dropdown-item" href="{{ route('members.staff.index') }}">Maklumat Staff</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -62,6 +64,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="{{ route('members.status_aduan.index') }}">Status Aduan</a>
               <a class="dropdown-item" href="{{ route('members.status_milik.index') }}">Status Milik</a>
+              <a class="dropdown-item" href="{{ route('members.status_bicara.index') }}">Status Perbicaraan</a>
             </div>
           </li>
           <li class="nav-item dropdown">

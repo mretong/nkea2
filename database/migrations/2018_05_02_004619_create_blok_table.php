@@ -17,6 +17,7 @@ class CreateBlokTable extends Migration
             $table->increments('id');
             $table->integer('fasa_id');
             $table->integer('lokaliti_id');
+            $table->integer('pakej_id');
             $table->string('nama');
             $table->double('jum_lot_total',8,2);
             $table->double('anggaran_kos',10,2);

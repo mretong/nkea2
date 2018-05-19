@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Borangk;
 use App\Blok;
+use App\Lot;
+
+use Session;
+use Validator;
 
 
 class BorangkController extends Controller
@@ -18,15 +22,21 @@ class BorangkController extends Controller
     public function create()
     {
     	$blok = Blok::pluck('nama','id');
+        $lot = Lot::pluck('no_lot','id');
 
-    	return view('borangk.create',compact('blok'));
+    	return view('borangk.create',compact('blok','lot'));
     }
 
     public function createPost(Request $request) {
 
     	$validation = Validator::make($request->all(), [
-    		'nama'	=> 'required|min:3',
-    		'kod'	=> 'required|min:3'
+            'blok_id'       => 'required|numeric',
+            'lot_id'        => 'required|numeric',
+            'tarikh_k'      => 'required|min:3',
+            'tarikh_terima' => 'required|min:3',
+            'jkptg'         => 'required|min:3',
+    		'jps'	        => 'required|min:3',
+    		'fail'	        => 'required|min:3'
     	]);
 
     	if($validation->fails()) {
@@ -36,8 +46,13 @@ class BorangkController extends Controller
     	}
 
     	$kform = Borangk::create([
-    			'nama'	=> strtoupper($request->get('nama')),
-    			'kod'	=> strtoupper($request->get('kod'))
+                'blok_id'  => strtoupper($request->get('blok_id')),
+                'lot_id'  => strtoupper($request->get('lot_id')),
+                'tarikh_k'  => strtoupper($request->get('tarikh_k')),
+                'tarikh_terima'  => strtoupper($request->get('tarikh_terima')),
+                'rujukan_jkptg'  => strtoupper($request->get('jkptg')),
+    			'rujukan_jps'	=> strtoupper($request->get('jps')),
+    			'rujukan_fail'	=> strtoupper($request->get('fail'))
     		]);
 
     	if($kform) 
@@ -51,9 +66,9 @@ class BorangkController extends Controller
 
     public function hapus($id) {
 
-    	$state = Borangk::findOrFail($id)->delete();
+    	$kform = Borangk::findOrFail($id)->delete();
 
-    	if($state)
+    	if($kform)
     		Session::flash('message', 'Berjaya. Data telah dihapus.');
     	else
     		Session::flash('message', 'Gagal. Data gagal dihapus.');

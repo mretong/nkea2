@@ -27,8 +27,9 @@ class LokalitiController extends Controller
     public function createPost(Request $request) {
 
     	$validation = Validator::make($request->all(), [
-    		'nama'	=> 'required|min:3',
-    		'kod'	=> 'required|min:3'
+    		'wilayah_id'  =>  'required|numeric',
+            'nama'	      => 'required|min:3',
+    		'kod'         => 'required|min:2'
     	]);
 
     	if($validation->fails()) {
@@ -37,12 +38,13 @@ class LokalitiController extends Controller
     			->withInputs();
     	}
 
-    	$state = Negeri::create([
-    			'nama'	=> strtoupper($request->get('nama')),
-    			'kod'	=> strtoupper($request->get('kod'))
+    	$local = Lokaliti::create([
+                'wilayah_id'  => strtoupper($request->get('wilayah_id')),
+    			'nama'	      => strtoupper($request->get('nama')),
+    			'kod'	      => strtoupper($request->get('kod'))
     		]);
 
-    	if($state) 
+    	if($local) 
     		Session::flash('message', 'Berjaya. Data telah ditambah.');
     	else
     		Session::flash('message', 'Gagal. Data gagal ditambah.');
@@ -53,13 +55,9 @@ class LokalitiController extends Controller
 
     public function hapus($id) {
 
-    	$state = Negeri::findOrFail($id)->delete();
+    	$local = Lokaliti::findOrFail($id)->delete();
 
-    	// delete jugak daerah
-    	$daerah = Daerah::where('negeri_id', $id)->delete();
-
-
-    	if($state)
+    	if($local)
     		Session::flash('message', 'Berjaya. Data telah dihapus.');
     	else
     		Session::flash('message', 'Gagal. Data gagal dihapus.');

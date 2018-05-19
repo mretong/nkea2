@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Blok;
 use App\Lot;
 use App\Mukim;
+use App\StatusMilik;
 
 use Session;
 use Validator;
@@ -22,15 +23,19 @@ class LotController extends Controller
     {
     	$blok = Blok::pluck('nama','id');
     	$mukim = Mukim::pluck('nama','id');
+        $status = StatusMilik::pluck('nama','id');
 
-    	return view('lot.create',compact('blok','mukim'));
+    	return view('lot.create',compact('blok','mukim','status'));
     }
 
     public function createPost(Request $request) {
 
     	$validation = Validator::make($request->all(), [
-    		'nama'	=> 'required|min:3',
-    		'kod'	=> 'required|min:3'
+            'blok_id'  => 'required|numeric',
+            'mukim_id'  => 'required|numeric',
+            'lot'  => 'required|min:3',
+    		'hakmilik'	=> 'required|min:3',
+    		'status_id'	=> 'required|numeric'
     	]);
 
     	if($validation->fails()) {
@@ -39,9 +44,12 @@ class LotController extends Controller
     			->withInputs();
     	}
 
-    	$state = Blok::create([
-    			'nama'	=> strtoupper($request->get('nama')),
-    			'kod'	=> strtoupper($request->get('kod'))
+    	$state = Lot::create([
+                'blok_id'           => strtoupper($request->get('blok_id')),
+                'mukim_id'          => strtoupper($request->get('mukim_id')),
+                'no_lot'            => strtoupper($request->get('lot')),
+    			'no_hakmilik'	    => strtoupper($request->get('hakmilik')),
+    			'status_milik_id'	=> strtoupper($request->get('status_id'))
     		]);
 
     	if($state) 
@@ -55,7 +63,7 @@ class LotController extends Controller
 
     public function hapus($id) {
 
-    	$state = Blok::findOrFail($id)->delete();
+    	$state = Lot::findOrFail($id)->delete();
 
     	if($state)
     		Session::flash('message', 'Berjaya. Data telah dihapus.');

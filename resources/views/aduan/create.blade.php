@@ -15,14 +15,14 @@
 		
 		<tr>
 			<td width="27%">{!! Form::label('nama', 'No.Aduan', ['class'=>'form control col-sm-8']) !!}</td>
-			<td>{!! Form::text('nama','',['class'=>'form-control col-sm-6']) !!}</td>
+			<td>{!! Form::text('aduan','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('kod', 'Tarikh Aduan', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::label('tarikh', 'Tarikh Aduan', ['class'=>'col-sm-8']) !!}</td>
 			<td>{!! Form::date('tarikh_aduan', \Carbon\Carbon::now(), ['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('kod', 'Tarikh Jangka Selesai', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::label('tarikh', 'Tarikh Jangka Selesai', ['class'=>'col-sm-8']) !!}</td>
 			<td>{!! Form::date('tarikh_selesai', \Carbon\Carbon::now(), ['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
@@ -30,15 +30,15 @@
 			<td>{!! Form::time('masa','',['class'=>'form-control col-sm-6','placeholder'=>'example: 1430H']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('nama', 'Staff Terima', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::label('staff', 'Staff Terima', ['class'=>'col-sm-8']) !!}</td>
 			<td>{{ Form::select('staff_id', $staff, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Staff']) }}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('nama', 'Blok', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::label('blok', 'Blok', ['class'=>'col-sm-8']) !!}</td>
 			<td>{{ Form::select('blok_id', $blok, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Blok']) }}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('nama', 'No.Lot & Hakmilik', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::label('lot', 'No.Lot & Hakmilik', ['class'=>'col-sm-8']) !!}</td>
 			<td>{{ Form::select('no_lot', $lot, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Lot & Hakmilik']) }}</td>
 		</tr>
 		<tr>

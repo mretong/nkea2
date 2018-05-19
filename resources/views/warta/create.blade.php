@@ -26,20 +26,20 @@
 			<td>{!! Form::date('tarikh_warta', \Carbon\Carbon::now(), ['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('kod', 'Jilid Warta', ['class'=>'col-sm-8']) !!}</td>
-			<td>{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}</td>
+			<td>{!! Form::label('jilid', 'Jilid Warta', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::text('jilid','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('kod', 'No.Warta', ['class'=>'col-sm-8']) !!}</td>
-			<td>{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}</td>
+			<td>{!! Form::label('no_warta', 'No.Warta', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::text('no_warta','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('kod', 'Rujukan', ['class'=>'col-sm-8']) !!}</td>
-			<td>{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}</td>
+			<td>{!! Form::label('rujukan', 'Rujukan', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::text('rujukan','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('kod', 'Catatan', ['class'=>'col-sm-8']) !!}</td>
-			<td>{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}</td>
+			<td>{!! Form::label('catatan', 'Catatan', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::text('catatan','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		
 		<tr>

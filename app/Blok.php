@@ -8,18 +8,18 @@ class Blok extends Model
 {
     protected $table = 'blok';
     protected $primaryKey = 'id';
-    protected $fillable = ['fasa_id','lokaliti_id','nama','jum_lot_total','anggaran_kos'];
+    protected $fillable = ['fasa_id','lokaliti_id','nama','jum_lot_total','anggaran_kos','pakej_id'];
 
     public $timestamps = true;
 
     public function fasa()
     {
-    	return $this->hasOne('App\Fasa','fasa_id','id');
+    	return $this->belongsTo('App\Fasa','fasa_id','id');
     }
 
     public function lokaliti()
     {
-    	return $this->belongsToMany('App\Lokaliti');
+    	return $this->belongsTo('App\Lokaliti','lokaliti_id','id');
     }
 
     public function negeri()

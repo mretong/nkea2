@@ -14,7 +14,7 @@
 		<tr>
 			<td><center><strong>Bil</strong></center></td>
 			<td><center><strong>Tarikh Terima</strong></center></td>
-			<td><center><strong>No.Lot</strong></center></td>
+			<td><center><strong>No.Lot & No.Hakmilik</strong></center></td>
 			<td><center><strong>Status Aduan</strong></center></td>
 			<td><center><strong>Pilihan</strong></center></td>
 		</tr>

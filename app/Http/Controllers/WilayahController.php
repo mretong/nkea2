@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Wilayah;
 use App\Daerah;
+
 use Validator;
 use Session;
 
@@ -20,14 +21,16 @@ class WilayahController extends Controller
     public function create() {
 
         $district = Daerah::pluck('nama','id');
-    	return view('wilayah.create',compact('district'));
+
+    	return view('wilayah.create', compact('district'));
     }
 
     public function createPost(Request $request) {
 
     	$validation = Validator::make($request->all(), [
-    		'nama'	=> 'required|min:3',
-    		'kod'	=> 'required|min:3'
+    		'daerah_id' => 'required|numeric',
+            'nama'	    => 'required|min:3',
+    		'kod'	    => 'required|min:2'
     	]);
 
     	if($validation->fails()) {
@@ -37,16 +40,17 @@ class WilayahController extends Controller
     	}
 
     	$state = Wilayah::create([
-    			'nama'	=> strtoupper($request->get('nama')),
-    			'kod'	=> strtoupper($request->get('kod'))
+                'daerah_id'   => strtoupper($request->get('daerah_id')),
+    			'nama'	      => strtoupper($request->get('nama')),
+    			'kod'	      => strtoupper($request->get('kod'))
     		]);
-
+        
     	if($state) 
     		Session::flash('message', 'Berjaya. Data telah ditambah.');
     	else
     		Session::flash('message', 'Gagal. Data gagal ditambah.');
 
-    	return redirect()->route('members.negeri.index');
+    	return redirect()->route('members.wilayah.index');
 
     }
 
@@ -54,16 +58,12 @@ class WilayahController extends Controller
 
     	$state = Wilayah::findOrFail($id)->delete();
 
-    	// delete jugak daerah
-    	$daerah = Daerah::where('negeri_id', $id)->delete();
-
-
     	if($state)
     		Session::flash('message', 'Berjaya. Data telah dihapus.');
     	else
     		Session::flash('message', 'Gagal. Data gagal dihapus.');
 
 
-    	return redirect()->route('members.negeri.index');
+    	return redirect()->route('members.wilayah.index');
     }
 }

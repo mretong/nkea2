@@ -8,18 +8,18 @@ class Mukim extends Model
 {
     protected $table = 'mukim';
     protected $primaryKey = 'id';
-    protected $fillable = ['id_daerah','id_wilayah','nama'];
+    protected $fillable = ['daerah_id','wilayah_id','nama'];
 
     public $timestamps = true;
 
     public function daerah()
     {
-    	return $this->belongsTo('App\Daerah','id_daerah','id');
+    	return $this->belongsTo('App\Daerah','daerah_id','id');
     }
 
     public function wilayah()
     {
-    	return $this->belongsTo('App\Wilayah','id_wilayah','id');
+    	return $this->belongsTo('App\Wilayah','wilayah_id','id');
     }
 
     public function blok()

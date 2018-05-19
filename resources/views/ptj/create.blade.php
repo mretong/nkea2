@@ -1,0 +1,28 @@
+@extends('layouts.members')
+
+@section('content')
+
+
+	<a href="{{ route('members.ptj.index') }}"><button class="btn btn-success">Senarai PTJ</button></a><br /><br />
+
+	@include('messages._formErrors')
+
+	{!! Form::open(['route' => 'members.ptj.create', 'method' => 'post']) !!}
+	<table class="table table-bordered table-striped">
+		<tr>
+			<thead><th colspan="2">Tambah PTJ</th></thead>
+		</tr>
+		<tr>
+			<td width="25%">{!! Form::label('nama', 'Nama PTJ', ['class'=>'form control col-sm-6']) !!}</td>
+			<td>{!! Form::text('nama','',['class'=>'form-control col-sm-6']) !!}</td>
+		</tr>
+		<tr>
+			<td>{!! Form::label('kod', 'Kod PTJ', ['class'=>'form control col-sm-6']) !!}</td>
+			<td>{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right">{{ Form::submit('Tambah PTJ', ['class' => 'btn btn-primary']) }}</td>
+		</tr>
+	{!! Form::close() !!}
+
+@endsection

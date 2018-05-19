@@ -13,7 +13,7 @@
 			<thead><th colspan="2">Tambah Lokaliti</th></thead>
 		</tr>
 		<tr>
-			<td>{!! Form::label('nama', 'Wilayah', ['class'=>'col-sm-6']) !!}</td>
+			<td>{!! Form::label('wilayah', 'Wilayah', ['class'=>'col-sm-6']) !!}</td>
 			<td>{{ Form::select('wilayah_id', $territorys, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Wilayah']) }}</td>
 		</tr>
 		<tr>
@@ -21,7 +21,7 @@
 			<td>{!! Form::text('nama','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('kod', 'Kod Lokaliti', ['class'=>'col-sm-6']) !!}</td>
+			<td>{!! Form::label('lokaliti', 'Kod Lokaliti', ['class'=>'col-sm-6']) !!}</td>
 			<td>{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>

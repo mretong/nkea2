@@ -96,9 +96,9 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 
 	//Wilayah
 	Route::get('/wilayah', [
-		'as'	=>	'wilayah.index',
-		'uses'	=>	'WilayahController@index'
-	]);
+		'as'	=> 'wilayah.index', 
+		'uses'	=> 'WilayahController@index'
+	]); // listing of daerah
 
 	Route::get('/wilayah/create', [
 		'as'	=> 'wilayah.create',
@@ -137,6 +137,7 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'uses'	=>	'FasaController@hapus'
 	]);
 
+
 	//Lokaliti
 	Route::get('/lokaliti', [
 		'as'	=>	'lokaliti.index',
@@ -157,6 +158,8 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'as'	=>	'lokaliti.hapus',
 		'uses'	=>	'LokalitiController@hapus'
 	]);
+
+
 
 	//Pakej
 	Route::get('/pakej', [
@@ -179,6 +182,8 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'uses'	=>	'PakejController@hapus'
 	]);
 
+
+
 	//Blok
 	Route::get('/blok', [
 		'as'	=>	'blok.index',
@@ -199,6 +204,7 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'as'	=>	'blok.hapus',
 		'uses'	=>	'BlokController@hapus'
 	]);
+
 
 	//Lot
 	Route::get('/lot', [
@@ -221,6 +227,7 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'uses'	=>	'LotController@hapus'
 	]);
 
+
 	//Warta
 	Route::get('/warta', [
 		'as'	=>	'warta.index',
@@ -242,6 +249,8 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'uses'	=>	'WartaController@hapus'
 	]);
 
+
+
 	//Perbicaraan
 	Route::get('/bicara', [
 		'as'	=>	'bicara.index',
@@ -262,6 +271,7 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'as'	=>	'bicara.hapus',
 		'uses'	=>	'PerbicaraanController@hapus'
 	]);
+
 
 
 	//Borang-K
@@ -286,6 +296,7 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 	]);
 
 
+
 	//Aduan
 	Route::get('/aduan', [
 		'as'	=>	'aduan.index',
@@ -306,6 +317,8 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'as'	=>	'aduan.hapus',
 		'uses'	=>	'AduanController@hapus'
 	]);
+
+
 
 
 	//Borang-H
@@ -330,6 +343,7 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 	]);
 
 
+
 	//Bank
 	Route::get('/bank', [
 		'as'	=>	'bank.index',
@@ -352,6 +366,7 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 	]);
 
 	
+
 	//Status Aduan
 	Route::get('/status_aduan', [
 		'as'	=>	'status_aduan.index',
@@ -372,6 +387,7 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'as'	=>	'status_aduan.hapus',
 		'uses'	=>	'StatusAduanController@hapus'
 	]);
+
 
 
 	//Status Milik
@@ -395,5 +411,72 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'uses'	=>	'StatusMilikController@hapus'
 	]);
 
+
+
+	//Ptj
+	Route::get('/ptj', [
+		'as'	=>	'ptj.index',
+		'uses'	=>	'PtjController@index'
+	]);
+
+	Route::get('/ptj/create', [
+		'as'	=>	'ptj.create',
+		'uses'	=>	'PtjController@create'
+	]);
+
+	Route::post('/ptj/create', [
+		'as'	=>	'ptj.createPost',
+		'uses'	=>	'PtjController@createPost'
+	]);
+
+	Route::get('/ptj/hapus/{id}', [
+		'as'	=>	'ptj.hapus',
+		'uses'	=>	'PtjController@hapus'
+	]);
+
+
+	//Staff
+	Route::get('/staff', [
+		'as'	=>	'staff.index',
+		'uses'	=>	'StaffController@index'
+	]);
+
+	Route::get('/staff/create', [
+		'as'	=>	'staff.create',
+		'uses'	=>	'StaffController@create'
+	]);
+
+	Route::post('/staff/create', [
+		'as'	=>	'staff.createPost',
+		'uses'	=>	'StaffController@createPost'
+	]);
+
+	Route::get('/staff/hapus/{id}', [
+		'as'	=>	'staff.hapus',
+		'uses'	=>	'StaffController@hapus'
+	]);
+
+
+
+	//StatusBicara
+	Route::get('/status_bicara', [
+		'as'	=>	'status_bicara.index',
+		'uses'	=>	'StatusBicaraController@index'
+	]);
+
+	Route::get('/status_bicara/create', [
+		'as'	=>	'status_bicara.create',
+		'uses'	=>	'StatusBicaraController@create'
+	]);
+
+	Route::post('/status_bicara/create', [
+		'as'	=>	'status_bicara.createPost',
+		'uses'	=>	'StatusBicaraController@createPost'
+	]);
+
+	Route::get('/status_bicara/hapus/{id}', [
+		'as'	=>	'status_bicara.hapus',
+		'uses'	=>	'StatusBicaraController@hapus'
+	]);
 
 }); // end of auth group

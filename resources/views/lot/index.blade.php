@@ -14,7 +14,7 @@
 		<tr>
 			<td><center><strong>Bil</strong></center></td>
 			<td><center><strong>Blok</strong></center></td>
-			<td><center><strong>Lot</strong></center></td>
+			<td><center><strong>No.Lot</strong></center></td>
 			<td><center><strong>Hakmilik</strong></center></td>
 			<td><center><strong>Pilihan</strong></center></td>
 		</tr>
@@ -22,9 +22,9 @@
 		@forelse ($lots as $lot)
 		    <tr>
 				<td><center>{{ $loop->iteration }}</td>
-				<td><center>{{ $lot->nama }}</td>
-				<td><center>{{ $lot->kod }}</td>
-				<td><center>{{ $lot->wilayah->nama }}</td>
+				<td><center>{{ $lot->blok->nama }}</td>
+				<td><center>{{ $lot->no_lot }}</td>
+				<td><center>{{ $lot->no_hakmilik }}</td>
 				
 				<td><center>					
 					<a href="{{ route('members.lot.hapus', ['id' => $lot->id]) }}"><button class="btn btn-danger">Hapus</button></a>

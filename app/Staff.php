@@ -8,12 +8,12 @@ class Staff extends Model
 {
     protected $table = 'staff';
     protected $primaryKey = 'id';
-    protected $fillable = ['nama','no_pekerja','ptj_id'];
+    protected $fillable = ['nama','ptj_id'];
 
     public $timestamps = true;
 
     public function ptj()
     {
-    	return $this->hasOne('App\Ptj','ptj_id','id');
+    	return $this->belongsTo('App\Ptj','ptj_id','id');
     }
 }

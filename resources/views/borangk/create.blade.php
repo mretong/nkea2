@@ -14,32 +14,32 @@
 		</tr>
 		
 		<tr>
-			<td width="27%">{!! Form::label('nama', 'Nama Blok', ['class'=>'form control col-sm-8']) !!}</td>
+			<td width="27%">{!! Form::label('blok', 'Nama Blok', ['class'=>'form control col-sm-8']) !!}</td>
 			<td>{{ Form::select('blok_id', $blok, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Blok']) }}</td>
 		</tr>
 		<tr>
-			<td width="27%">{!! Form::label('nama', 'No.Lot & Hakmilik', ['class'=>'form control col-sm-8']) !!}</td>
-			<td>{{ Form::select('blok_id', $blok, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Lot & Hakmilik']) }}</td>
+			<td width="27%">{!! Form::label('lot', 'No.Lot & Hakmilik', ['class'=>'form control col-sm-8']) !!}</td>
+			<td>{{ Form::select('lot_id', $lot, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Lot & Hakmilik']) }}</td>
 		</tr>
 		<tr>
 			<td width="27%">{!! Form::label('nama', 'Tarikh Borang-K', ['class'=>'form control col-sm-8']) !!}</td>
-			<td>{!! Form::date('tarikh_warta', \Carbon\Carbon::now(), ['class'=>'form-control col-sm-6']) !!}</td>
+			<td>{!! Form::date('tarikh_k', \Carbon\Carbon::now(), ['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
 			<td width="27%">{!! Form::label('nama', 'Tarikh Terima', ['class'=>'form control col-sm-8']) !!}</td>
-			<td>{!! Form::date('tarikh_warta', \Carbon\Carbon::now(), ['class'=>'form-control col-sm-6']) !!}</td>
+			<td>{!! Form::date('tarikh_terima', \Carbon\Carbon::now(), ['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
 			<td>{!! Form::label('kod', 'Rujukan JKPTG', ['class'=>'col-sm-8']) !!}</td>
-			<td>{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}</td>
+			<td>{!! Form::text('jkptg','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
 			<td>{!! Form::label('kod', 'Rujukan JPS', ['class'=>'col-sm-8']) !!}</td>
-			<td>{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}</td>
+			<td>{!! Form::text('jps','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
 			<td>{!! Form::label('kod', 'Rujukan Fail', ['class'=>'col-sm-8']) !!}</td>
-			<td>{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}</td>
+			<td>{!! Form::text('fail','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
 			<td>{!! Form::label('kod', 'Attachment', ['class'=>'col-sm-8']) !!}</td>

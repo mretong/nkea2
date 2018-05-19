@@ -14,7 +14,7 @@
 		<tr>
 			<td><center><strong>Bil</strong></center></td>
 			<td><center><strong>Blok</strong></center></td>
-			<td><center><strong>No.Lot</strong></center></td>
+			<td><center><strong>No.Lot & No.Hakmilik</strong></center></td>
 			<td><center><strong>Tarikh Borang-K</strong></center></td>
 			<td><center><strong>Pilihan</strong></center></td>
 		</tr>
@@ -22,12 +22,12 @@
 		@forelse ($kforms as $kform)
 		    <tr>
 				<td><center>{{ $loop->iteration }}</td>
-				<td><center>{{ $kform->nama }}</td>
-				<td><center>{{ $kform->kod }}</td>
-				<td><center>{{ $kform->wilayah->nama }}</td>
+				<td><center>{{ $kform->blok->nama }}</td>
+				<td><center>{{ $kform->lot->no_lot }} - {{ $kform->lot->no_hakmilik  }} </td>
+				<td><center>{{ $kform->tarikh_k }}</td>
 				
 				<td><center>					
-					<a href="{{ route('members.borangk.hapus', ['id' => $borangk->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+					<a href="{{ route('members.borangk.hapus', ['id' => $kform->id]) }}"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
 								
 			</tr>	
