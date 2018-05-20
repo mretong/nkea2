@@ -46,6 +46,16 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'uses'	=> 'NegeriController@hapus'
 	]);
 
+	Route::get('/negeri/edit/{id}', [
+		'as'	=>	'negeri.edit',
+		'uses'	=>	'NegeriController@edit'
+	]);
+
+	Route::post('/negeri/edit/{id}',[
+		'as'	=>	'negeri.editPost',
+		'uses'	=>	'NegeriController@editPost'
+	]);
+
 
 
 	//	DAERAH
