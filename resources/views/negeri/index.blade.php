@@ -24,7 +24,7 @@
 				<td><center>{{ $state->nama }}</td>
 				<td><center>{{ $state-> kod }}</td>
 				
-				<td><center><a href="{{ route('members.negeri.edit', ['id' => $state->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
+				<td><center><a href="{{ route('members.negeri.show', ['id' => $state->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
 				<a href="{{ route('members.negeri.hapus', ['id' => $state->id]) }}"><button class="btn btn-danger">Hapus</button></a></center></td>
 								
 			</tr>	

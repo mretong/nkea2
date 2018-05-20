@@ -7,7 +7,8 @@
 
 	@include('messages._formErrors')
 
-	{!! Form::open(array($state), ['route' => ['members.negeri.edit', $state->id], 'method' => 'post']) !!}
+	{!! Form::model($state, ['route' => ['members.negeri.show', $state->id], 'method' => 'post']) !!}
+
 	<table class="table table-bordered table-striped">
 		<tr>
 			<thead><th colspan="2"><h4>Kemaskini Negeri</h4></th></thead>

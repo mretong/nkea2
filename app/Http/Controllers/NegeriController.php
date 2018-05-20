@@ -66,35 +66,23 @@ class NegeriController extends Controller
     	return redirect()->route('members.negeri.index');
     }
 
-    public function edit($id)
+    public function show($id)
     {
         $state = Negeri::findOrFail($id);
-
-        return view('negeri.show',compact('state'));
+        // dd($state);
+        return view('negeri.show', compact('state'));
     }
 
-    public function editPost($id, Request $request)
+    public function update($id, Request $request)
     {
-        $validation = Validator::make($request->all(), [
-            'nama'  => 'required|min:3',
-            'kod'   => 'required|min:3'
-        ]);
+        
+        $state = Negeri::find($id);
+// dd($state);
+        $state->nama         =   strtoupper($request->get('nama'));
+        $state->kod          =   strtoupper($request->get('kod'));
 
-        if($validation->fails()) {
-            return redirect()->route('members.negeri.create')
-                ->withErrors($validation)
-                ->withInputs();
-        }
+        $state->save();
 
-        $state = Negeri::create([
-                'nama'  => strtoupper($request->get('nama')),
-                'kod'   => strtoupper($request->get('kod'))
-            ]);
-
-        if($state) 
-            Session::flash('message', 'Berjaya. Data telah dikemaskini.');
-        else
-            Session::flash('message', 'Gagal. Data gagal dikemaskini.');
 
         return redirect()->route('members.negeri.index');
     }
