@@ -27,7 +27,7 @@ class PerbicaraanController extends Controller
     	$daerah = Daerah::pluck('nama','id');
     	$blok = Blok::pluck('nama','id');
     	$mukim = Mukim::pluck('nama','id');
-    	$lot = Lot::pluck('no_lot','no_hakmilik');
+    	$lot = Lot::pluck('no_lot','id');
     	$staff = Staff::pluck('nama','id');
     	$status = StatusBicara::pluck('nama','id');
 
@@ -49,8 +49,6 @@ class PerbicaraanController extends Controller
             'tuan_tanah'  => 'required|min:1',
             'pampasan'  => 'required|min:1',
             'lain'  => 'required|min:1',
-            'mada_id'  => 'required|numeric',
-            'jps_id'  => 'required|numeric',
     		'jajaran'	=> 'required|min:1',
     		'catatan'	=> 'required|min:1'
     	]);
@@ -80,7 +78,7 @@ class PerbicaraanController extends Controller
     			'jajaran'	=> strtoupper($request->get('jajaran')),
     			'catatan'	=> strtoupper($request->get('catatan'))
     		]);
-
+        
     	if($hears) 
     		Session::flash('message', 'Berjaya. Data telah ditambah.');
     	else

@@ -37,7 +37,7 @@
 		    </tr>
 		@endforelse
 
-		@if($locals->count() > 10)
+		@if($locals->count() >= 10 || $locals->count() <= 10)
 			<tr>
 				<td colspan="5" align="center">{{ $locals->render() }}</td>
 			</tr>
