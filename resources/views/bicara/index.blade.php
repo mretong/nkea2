@@ -22,9 +22,9 @@
 		@forelse ($hearings as $hearing)
 		    <tr>
 				<td><center>{{ $loop->iteration }}</td>
-				<td><center>{{ $hearing->lot_id }}</td>
-				<td><center>{{ $hearing->staff_id }}</td>
-				<td><center>{{ $hearing->status_id }}</td>
+				<td><center>{{ $hearing->lot->no_lot }}</td>
+				<td><center>{{ $hearing->staff->nama }}</td>
+				<td><center>{{ $hearing->status->nama }}</td>
 				
 				<td><center>					
 					<a href="{{ route('members.bicara.hapus', ['id' => $hearing->id]) }}"><button class="btn btn-danger">Hapus</button></a>

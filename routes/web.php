@@ -479,4 +479,28 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'uses'	=>	'StatusBicaraController@hapus'
 	]);
 
+
+
+
+	//KategoriBayaran
+	Route::get('/kategori', [
+		'as'	=>	'kategori.index',
+		'uses'	=>	'KategoriPampasanController@index'
+	]);
+
+	Route::get('/kategori/create', [
+		'as'	=>	'kategori.create',
+		'uses'	=>	'KategoriPampasanController@create'
+	]);
+
+	Route::post('/kategori/create', [
+		'as'	=>	'kategori.createPost',
+		'uses'	=>	'KategoriPampasanController@createPost'
+	]);
+
+	Route::get('/kategori/hapus/{id}', [
+		'as'	=>	'kategori.hapus',
+		'uses'	=>	'KategoriPampasanController@hapus'
+	]);
+
 }); // end of auth group

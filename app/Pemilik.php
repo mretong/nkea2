@@ -8,7 +8,7 @@ class Pemilik extends Model
 {
     protected $table = 'pemilik';
     protected $primaryKey = 'id';
-    protected $fillable = ['lot_id','status_milikan_id','nama','no_kp','kategori_pampasan_id','pecahan','tarikh_h','tarikh_terima','rujukan_jkptg','rujukan_jps'];
+    protected $fillable = ['blok_id','lot_id','status_milikan_id','nama','no_kp','kategori_pampasan_id','pecahan','tarikh_h','tarikh_terima','rujukan_jkptg','rujukan_jps'];
 
     public $timestamps = true;
 
@@ -17,13 +17,18 @@ class Pemilik extends Model
     	return $this->belongsTo('App\Lot','lot_id','id');
     }
 
-    public function milikan()
+    public function status()
     {
     	return $this->belongsTo('App\StatusMilik','status_milikan_id','id');
     }
 
-    public function kategori_pampasan()
+    public function kategori()
     {
     	return $this->belongsTo('App\KategoriPampasan','kategori_pampasan_id','id');
+    }
+
+    public function blok()
+    {
+        return $this->belongsTo('App\Blok','blok_id','id');
     }
 }

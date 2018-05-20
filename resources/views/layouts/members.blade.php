@@ -57,6 +57,7 @@
               <a class="dropdown-item" href="{{ route('members.bank.index') }}">Bank</a>
               <a class="dropdown-item" href="{{ route('members.ptj.index') }}">PTJ</a>
               <a class="dropdown-item" href="{{ route('members.staff.index') }}">Maklumat Staff</a>
+              <a class="dropdown-item" href="{{ route('members.kategori.index') }}">Kategori Pampasan</a>
             </div>
           </li>
           <li class="nav-item dropdown">
