@@ -3,8 +3,8 @@
 @section('content')
 
 
-	<a href="{{ route('members.borangh.create') }}"><button class="btn btn-success">Tambah Pemilik</button></a>
-	<a href="{{ route('members.borangh.create') }}"><button class="btn btn-success" style="float:right;">Pembayaran</button></a><br /><br />
+	<a href="{{ route('members.borangh.create') }}"><button class="btn btn-success">Tambah Pemilik</button></a><br><br>
+	<!-- <a href="{{ route('members.borangh.create') }}"><button class="btn btn-success" style="float:right;">Pembayaran</button></a><br /><br /> -->
 
 	@include('messages._success')
 
