@@ -278,6 +278,16 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'uses'	=>	'WartaController@hapus'
 	]);
 
+	Route::get('warta/{warta}', [
+		'as'	=>	'warta.show',
+		'uses'	=>	'WartaController@show'
+	]);
+
+	Route::post('warta/{warta}',[
+		'as'	=>	'warta.update',
+		'uses'	=>	'WartaController@update'
+	]);
+
 
 
 	//Perbicaraan
@@ -301,6 +311,16 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'uses'	=>	'PerbicaraanController@hapus'
 	]);
 
+	Route::get('bicara/{bicara}', [
+		'as'	=>	'bicara.show',
+		'uses'	=>	'PerbicaraanController@show'
+	]);
+
+	Route::post('bicara/{bicara}',[
+		'as'	=>	'bicara.update',
+		'uses'	=>	'PerbicaraanController@update'
+	]);
+
 
 
 	//Borang-K
@@ -322,6 +342,16 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 	Route::get('/borangk/hapus/{id}', [
 		'as'	=>	'borangk.hapus',
 		'uses'	=>	'BorangkController@hapus'
+	]);
+
+	Route::get('borangk/{borangk}', [
+		'as'	=>	'borangk.show',
+		'uses'	=>	'BorangkController@show'
+	]);
+
+	Route::post('borangk/{borangk}',[
+		'as'	=>	'borangk.update',
+		'uses'	=>	'BorangkController@update'
 	]);
 
 
@@ -369,6 +399,16 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 	Route::get('/borangh/hapus/{id}', [
 		'as'	=>	'borangh.hapus',
 		'uses'	=>	'BoranghController@hapus'
+	]);
+
+	Route::get('borangh/{borangh}', [
+		'as'	=>	'borangh.show',
+		'uses'	=>	'BoranghController@show'
+	]);
+
+	Route::post('borangh/{borangh}',[
+		'as'	=>	'borangh.update',
+		'uses'	=>	'BoranghController@update'
 	]);
 
 

@@ -100,4 +100,67 @@ class PerbicaraanController extends Controller
 
     	return redirect()->route('members.bicara.index');
     }
+
+    //kemaskini start
+    public function show($id)
+    {
+        $hears = Perbicaraan::findOrFail($id);
+        $daerah = Daerah::pluck('nama','id');
+        $blok = Blok::pluck('nama','id');
+        $mukim = Mukim::pluck('nama','id');
+        $lot = Lot::pluck('no_lot','id');
+        $staff = Staff::pluck('nama','id');
+        $status = StatusBicara::pluck('nama','id');
+
+        return view('bicara.show', compact('hears','blok','daerah','mukim','lot','staff','status'));
+    }
+
+    public function update($id, Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
+            'daerah_id'  => 'required|numeric',
+            'mukim_id'  => 'required|numeric',
+            'blok_id'  => 'required|numeric',
+            'lot_id'  => 'required|numeric',
+            'pentadbir_id'  => 'required|numeric',
+            'status_id'  => 'required|numeric',
+            'bicara'  => 'required|min:1',
+            'luas'  => 'required|min:1',
+            'harga'  => 'required|min:1',
+            'tuan_tanah'  => 'required|min:1',
+            'pampasan'  => 'required|min:1',
+            'lain'  => 'required|min:1',
+            'jajaran'   => 'required|min:1',
+            'catatan'   => 'required|min:1'
+        ]);
+
+        if($validation->fails()) {
+            return redirect()->route('members.bicara.show')
+                ->withErrors($validation)
+                ->withInputs();
+        }
+        
+        $bicara = Warta::find($id);
+
+        $bicara->blok_id         =   strtoupper($request->get('daerah_id'));
+        $bicara->pakej_id          =   strtoupper($request->get('mukim_id'));
+        $bicara->tarikh_warta          =   strtoupper($request->get('blok_id'));
+        $bicara->jilid_warta          =   strtoupper($request->get('lot_id'));
+        $bicara->jilid_warta          =   strtoupper($request->get('tarikh_bicara'));
+        $bicara->no_warta          =   strtoupper($request->get('pentadbir_id'));
+        $bicara->rujukan          =   strtoupper($request->get('status_id'));
+        $bicara->catatan          =   strtoupper($request->get('catatan'));
+
+        $bicara->save();
+
+        if($bicara) 
+            Session::flash('message', 'Berjaya. Data telah dikemaskini.');
+        else
+            Session::flash('message', 'Gagal. Data gagal dikemaskini.');
+
+        return redirect()->route('members.bicara.index');
+    }
+
+    //kemaskini end.
 }

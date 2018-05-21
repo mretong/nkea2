@@ -27,7 +27,7 @@
 				<td><center>{{ $complaint->status_aduan_id }}</td>
 				
 				<td><center>					
-					<a href="#"><button class="btn btn-primary">Kemaskini</button></a>
+					<a href="{{ route('members.aduan.show', ['id' => $complaint->id]) }}"><button class="btn btn-info">Hapus</button></a>
 					<a href="{{ route('members.aduan.hapus', ['id' => $complaint->id]) }}"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
 								

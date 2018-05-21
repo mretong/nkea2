@@ -27,6 +27,7 @@
 				<td><center>{{ $kform->tarikh_k }}</td>
 				
 				<td><center>					
+					<a href="{{ route('members.borangk.show', ['id' => $kform->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
 					<a href="{{ route('members.borangk.hapus', ['id' => $kform->id]) }}"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
 								

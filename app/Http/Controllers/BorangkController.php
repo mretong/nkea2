@@ -76,4 +76,55 @@ class BorangkController extends Controller
 
     	return redirect()->route('members.borangk.index');
     }
+
+    //kemaskini start
+    public function show($id)
+    {
+        $kform = Borangk::findOrFail($id);
+        $blok = Blok::pluck('nama','id');
+        $lot = Lot::pluck('no_lot','id');
+
+        return view('borangk.show', compact('kform','blok','lot'));
+    }
+
+    public function update($id, Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
+            'blok_id'           => 'required|numeric',
+            'lot_id'            => 'required|numeric',
+            'tarikh_k'          => 'required|min:3',
+            'tarikh_terima'     => 'required|min:3',
+            'rujukan_jkptg'     => 'required|min:3',
+            'rujukan_jps'       => 'required|min:3',
+            'rujukan_fail'      => 'required|min:3'
+        ]);
+
+        if($validation->fails()) {
+            return redirect()->route('members.borangk.show')
+                ->withErrors($validation)
+                ->withInputs();
+        }
+        
+        $borangk = Warta::find($id);
+
+        $borangk->blok_id         =   strtoupper($request->get('blok_id'));
+        $borangk->pakej_id        =   strtoupper($request->get('lot_id'));
+        $borangk->tarikh_warta    =   strtoupper($request->get('tarikh_k'));
+        $borangk->jilid_warta     =   strtoupper($request->get('tarikh_terima'));
+        $borangk->no_warta        =   strtoupper($request->get('rujukan_jkptg'));
+        $borangk->rujukan         =   strtoupper($request->get('rujukan_jps'));
+        $borangk->catatan         =   strtoupper($request->get('rujukan_fail'));
+        
+        $borangk->save();
+
+        if($borangk) 
+            Session::flash('message', 'Berjaya. Data telah dikemaskini.');
+        else
+            Session::flash('message', 'Gagal. Data gagal dikemaskini.');
+
+        return redirect()->route('members.borangk.index');
+    }
+
+    //kemaskini end.
 }

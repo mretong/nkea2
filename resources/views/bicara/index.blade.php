@@ -29,6 +29,7 @@
 				<td><center>{{ $hearing->status->nama }}</td>
 				
 				<td><center>					
+					<a href="{{ route('members.bicara.show', ['id' => $hearing->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
 					<a href="{{ route('members.bicara.hapus', ['id' => $hearing->id]) }}"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
 								

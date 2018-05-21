@@ -28,6 +28,7 @@
 				<td><center>{{ $owner->nama }}</td>
 				
 				<td><center>					
+					<a href="{{ route('members.borangh.show', ['id' => $owner->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
 					<a href="{{ route('members.borangh.hapus', ['id' => $owner->id]) }}"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
 								

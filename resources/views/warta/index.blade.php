@@ -27,6 +27,7 @@
 				<td><center>{{ $warrant->tarikh_warta }}</td>
 				
 				<td><center>					
+					<a href="{{ route('members.warta.show', ['id' => $warrant->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
 					<a href="{{ route('members.warta.hapus', ['id' => $warrant->id]) }}"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
 								
