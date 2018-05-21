@@ -27,6 +27,7 @@
 				<td><center>{{ $district->negeri->nama }}</td>
 				
 				<td><center>					
+					<a href="{{ route('members.daerah.show', ['id' => $district->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
 					<a href="{{ route('members.daerah.hapus', ['id' => $district->id]) }}"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
 								

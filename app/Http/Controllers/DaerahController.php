@@ -54,6 +54,8 @@ class DaerahController extends Controller
         return redirect()->route('members.daerah.index');
     }
 
+
+    //Delete function
     public function hapus($id) {
 
         $district = Daerah::findOrFail($id)->delete();
@@ -66,5 +68,48 @@ class DaerahController extends Controller
         return redirect()->route('members.daerah.index');
 
     }
+    //delete function end
+
+
+    //kemaskini start
+    public function show($id)
+    {
+        $district = Daerah::findOrFail($id);
+        $states = Negeri::pluck('nama','id');
+
+        return view('daerah.show', compact('district','states'));
+    }
+
+    public function update($id, Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
+            'negeri_id' => 'required|numeric',
+            'nama'      => 'required|min:3',
+            'kod'       => 'required|min:3'
+        ]);
+
+        if($validation->fails()) {
+            return redirect()->route('members.daerah.show')
+                ->withErrors($validation)
+                ->withInputs();
+        }
+        
+        $daerah = Daerah::find($id);
+
+        $daerah->nama         =   strtoupper($request->get('nama'));
+        $daerah->kod          =   strtoupper($request->get('kod'));
+
+        $daerah->save();
+
+        if($daerah) 
+            Session::flash('message', 'Berjaya. Data telah dikemaskini.');
+        else
+            Session::flash('message', 'Gagal. Data gagal dikemaskini.');
+
+        return redirect()->route('members.daerah.index');
+    }
+
+    //kemaskini end
 
 }

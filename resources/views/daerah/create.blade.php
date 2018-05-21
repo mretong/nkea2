@@ -13,15 +13,15 @@
 			<thead><th colspan="2">Tambah Daerah</th></thead>
 		</tr>
 		<tr>
-			<td>{!! Form::label('nama', 'Nama Daerah', ['class'=>'col-sm-6']) !!}</td>
-			<td>{{ Form::select('negeri_id', $states, null, ['class' => 'form-control', 'placeholder' => 'Pilih Negeri']) }}</td>
+			<td>{!! Form::label('nama', 'Negeri', ['class'=>'col-sm-6']) !!}</td>
+			<td>{{ Form::select('negeri_id', $states, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Negeri']) }}</td>
 		</tr>
 		<tr>
 			<td width="27%">{!! Form::label('nama', 'Nama Daerah', ['class'=>'form control col-sm-6']) !!}</td>
 			<td>{!! Form::text('nama','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('kod', 'Singkatan', ['class'=>'col-sm-6']) !!}</td>
+			<td>{!! Form::label('kod', 'Singkatan/Kod', ['class'=>'col-sm-6']) !!}</td>
 			<td>{!! Form::text('kod','',['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>

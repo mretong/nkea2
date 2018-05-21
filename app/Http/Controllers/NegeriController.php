@@ -49,6 +49,8 @@ class NegeriController extends Controller
 
     }
 
+
+    //delete start
     public function hapus($id) {
 
     	$state = Negeri::findOrFail($id)->delete();
@@ -65,7 +67,9 @@ class NegeriController extends Controller
 
     	return redirect()->route('members.negeri.index');
     }
+    //delete end.
 
+    //kemaskini start
     public function show($id)
     {
         $state = Negeri::findOrFail($id);
@@ -94,11 +98,13 @@ class NegeriController extends Controller
         $negeri->save();
 
         if($negeri) 
-            Session::flash('message', 'Berjaya. Data telah ditambah.');
+            Session::flash('message', 'Berjaya. Data telah dikemaskini.');
         else
-            Session::flash('message', 'Gagal. Data gagal ditambah.');
+            Session::flash('message', 'Gagal. Data gagal dikemaskini.');
 
         return redirect()->route('members.negeri.index');
     }
+
+    //kemaskini end.
 
 }

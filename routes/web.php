@@ -85,6 +85,16 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 			'uses'	=> 'DaerahController@hapus'
 		]);
 
+		Route::get('/{daerah}', [
+			'as'	=>	'daerah.show',
+			'uses'	=>	'DaerahController@show'
+		]);
+
+		Route::post('/{daerah}',[
+			'as'	=>	'daerah.update',
+			'uses'	=>	'DaerahController@update'
+		]);
+
 	});
 	
 
