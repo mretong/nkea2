@@ -9,7 +9,7 @@
 
 	<table class="table table-bordered table-striped">
 		<thead>
-			<th colspan="5"><h4>Senarai Perbicaraan</h4></th>
+			<th colspan="6"><h4>Senarai Perbicaraan</h4></th>
 		</thead>
 		<tr>
 			<td><center><strong>Bil</strong></center></td>
@@ -35,13 +35,13 @@
 			</tr>	
 		@empty
 		    <tr>
-		    	<td colspan="5"><font color="red">No Data</font></td>
+		    	<td colspan="6"><font color="red">No Data</font></td>
 		    </tr>
 		@endforelse
 
 		@if($hearings->count() > 10)
 			<tr>
-				<td colspan="5" align="center">{{ $hearings->render() }}</td>
+				<td colspan="6" align="center">{{ $hearings->render() }}</td>
 			</tr>
 		@endif
 

@@ -26,58 +26,67 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 
 
 	//	Negeri
-	Route::get('/negeri', [
-		'as'	=> 'negeri.index',
-		'uses'	=> 'NegeriController@index'
-	]);
 
-	Route::get('/negeri/create', [
-		'as'	=> 'negeri.create',
-		'uses'	=> 'NegeriController@create' 
-	]);
+	Route::group(['prefix' => 'negeri'], function() {
 
-	Route::post('/negeri/create', [
-		'as'	=> 'negeri.createPost',
-		'uses'	=> 'NegeriController@createPost'
-	]);
+		Route::get('/', [
+			'as'	=> 'negeri.index',
+			'uses'	=> 'NegeriController@index'
+		]);
 
-	Route::get('/negeri/hapus/{id}', [
-		'as'	=> 'negeri.hapus',
-		'uses'	=> 'NegeriController@hapus'
-	]);
+		Route::get('/create', [
+			'as'	=> 'negeri.create',
+			'uses'	=> 'NegeriController@create' 
+		]);
 
-	Route::get('/negeri/{negeri}', [
-		'as'	=>	'negeri.show',
-		'uses'	=>	'NegeriController@show'
-	]);
+		Route::post('/create', [
+			'as'	=> 'negeri.createPost',
+			'uses'	=> 'NegeriController@createPost'
+		]);
 
-	Route::patch('/negeri/{negeri}',[
-		'as'	=>	'negeri.update',
-		'uses'	=>	'NegeriController@update'
-	]);
+		Route::get('/hapus/{id}', [
+			'as'	=> 'negeri.hapus',
+			'uses'	=> 'NegeriController@hapus'
+		]);
 
+		Route::get('/{negeri}', [
+			'as'	=>	'negeri.show',
+			'uses'	=>	'NegeriController@show'
+		]);
+
+		Route::post('/{negeri}',[
+			'as'	=>	'negeri.update',
+			'uses'	=>	'NegeriController@update'
+		]);
+
+	});
 
 
 	//	DAERAH
-	Route::get('/daerah', [
-		'as'	=> 'daerah.index', 
-		'uses'	=> 'DaerahController@index'
-	]); // listing of daerah
+	Route::group(['prefix' => 'daerah'], function() {
 
-	Route::get('/daerah/create', [
-		'as'	=> 'daerah.create',
-		'uses'	=> 'DaerahController@create'
-	]);
+		Route::get('/', [
+			'as'	=> 'daerah.index', 
+			'uses'	=> 'DaerahController@index'
+		]); // listing of daerah
 
-	Route::post('/daerah/create', [
-		'as'	=> 'daerah.createPost',
-		'uses'	=> 'DaerahController@createPost'
-	]);
+		Route::get('/create', [
+			'as'	=> 'daerah.create',
+			'uses'	=> 'DaerahController@create'
+		]);
 
-	Route::get('/daerah/hapus/{id}', [
-		'as'	=> 'daerah.hapus',
-		'uses'	=> 'DaerahController@hapus'
-	]);
+		Route::post('/create', [
+			'as'	=> 'daerah.createPost',
+			'uses'	=> 'DaerahController@createPost'
+		]);
+
+		Route::get('/hapus/{id}', [
+			'as'	=> 'daerah.hapus',
+			'uses'	=> 'DaerahController@hapus'
+		]);
+
+	});
+	
 
 
 	//Mukim

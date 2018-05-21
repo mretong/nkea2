@@ -69,12 +69,12 @@ class NegeriController extends Controller
     public function show($id)
     {
         $state = Negeri::findOrFail($id);
-        // dd($state);
         return view('negeri.show', compact('state'));
     }
 
     public function update($id, Request $request)
     {
+
         $validation = Validator::make($request->all(), [
             'nama'  => 'required|min:3',
             'kod'   => 'required|min:3'
