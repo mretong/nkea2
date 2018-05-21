@@ -46,12 +46,12 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'uses'	=> 'NegeriController@hapus'
 	]);
 
-	Route::get('/negeri/show/{id}', [
+	Route::get('/negeri/{negeri}', [
 		'as'	=>	'negeri.show',
 		'uses'	=>	'NegeriController@show'
 	]);
 
-	Route::post('/negeri/update/{id}',[
+	Route::patch('/negeri/{negeri}',[
 		'as'	=>	'negeri.update',
 		'uses'	=>	'NegeriController@update'
 	]);

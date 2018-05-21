@@ -7,7 +7,7 @@
 
 	@include('messages._formErrors')
 
-	{!! Form::model($state, ['route' => ['members.negeri.show', $state->id], 'method' => 'post']) !!}
+	{!! Form::model($state, ['route' => ['members.negeri.show', $state->id], 'method' => 'put']) !!}
 
 	<table class="table table-bordered table-striped">
 		<tr>

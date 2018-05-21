@@ -13,6 +13,7 @@
 		</thead>
 		<tr>
 			<td><center><strong>Bil</strong></center></td>
+			<td><center><strong>Tarikh</strong></center></td>
 			<td><center><strong>No.Lot & Hakmilik</strong></center></td>
 			<td><center><strong>Nama Pentadbir</strong></center></td>
 			<td><center><strong>Status Bicara</strong></center></td>
@@ -22,7 +23,8 @@
 		@forelse ($hearings as $hearing)
 		    <tr>
 				<td><center>{{ $loop->iteration }}</td>
-				<td><center>{{ $hearing->lot->no_lot }}</td>
+				<td><center>{{ $hearing->tarikh_1 }}</td>
+				<td><center>{{ $hearing->lot->no_lot }} - {{ $hearing->lot->no_hakmilik }} </td>
 				<td><center>{{ $hearing->staff->nama }}</td>
 				<td><center>{{ $hearing->status->nama }}</td>
 				

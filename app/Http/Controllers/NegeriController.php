@@ -75,14 +75,28 @@ class NegeriController extends Controller
 
     public function update($id, Request $request)
     {
+        $validation = Validator::make($request->all(), [
+            'nama'  => 'required|min:3',
+            'kod'   => 'required|min:3'
+        ]);
+
+        if($validation->fails()) {
+            return redirect()->route('members.negeri.show')
+                ->withErrors($validation)
+                ->withInputs();
+        }
         
-        $state = Negeri::find($id);
-// dd($state);
-        $state->nama         =   strtoupper($request->get('nama'));
-        $state->kod          =   strtoupper($request->get('kod'));
+        $negeri = Negeri::find($id);
 
-        $state->save();
+        $negeri->nama         =   strtoupper($request->get('nama'));
+        $negeri->kod          =   strtoupper($request->get('kod'));
 
+        $negeri->save();
+
+        if($negeri) 
+            Session::flash('message', 'Berjaya. Data telah ditambah.');
+        else
+            Session::flash('message', 'Gagal. Data gagal ditambah.');
 
         return redirect()->route('members.negeri.index');
     }
