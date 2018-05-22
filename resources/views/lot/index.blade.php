@@ -27,6 +27,7 @@
 				<td><center>{{ $lot->no_hakmilik }}</td>
 				
 				<td><center>					
+					<a href="{{ route('members.lot.show', ['id' => $lot->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
 					<a href="{{ route('members.lot.hapus', ['id' => $lot->id]) }}"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
 								

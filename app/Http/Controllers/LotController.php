@@ -73,4 +73,52 @@ class LotController extends Controller
 
     	return redirect()->route('members.lot.index');
     }
+
+    //kemaskini start
+    public function show($id)
+    {
+        $lots = Lot::findOrFail($id);
+        $blok = Blok::pluck('nama','id');
+        $mukim = Mukim::pluck('nama','id');
+        $status = StatusMilik::pluck('nama','id');
+
+        return view('lot.show', compact('lots','blok','mukim','status'));
+    }
+
+    public function update($id, Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
+            'blok_id'           => 'required|numeric',
+            'mukim_id'          => 'required|numeric',
+            'no_lot'            => 'required|min:3',
+            'no_hakmilik'       => 'required|min:3',
+            'status_milik_id'   => 'required|numeric'
+        ]);
+
+        if($validation->fails()) {
+            return redirect()->route('members.lot.show')
+                ->withErrors($validation)
+                ->withInputs();
+        }
+        
+        $lot = Lot::find($id);
+
+        $lot->blok_id           =   strtoupper($request->get('blok_id'));
+        $lot->mukim_id          =   strtoupper($request->get('mukim_id'));
+        $lot->no_lot            =   strtoupper($request->get('no_lot'));
+        $lot->no_hakmilik       =   strtoupper($request->get('no_hakmilik'));
+        $lot->status_milik_id   =   strtoupper($request->get('status_milik_id'));
+
+        $lot->save();
+
+        if($lot) 
+            Session::flash('message', 'Berjaya. Data telah dikemaskini.');
+        else
+            Session::flash('message', 'Gagal. Data gagal dikemaskini.');
+
+        return redirect()->route('members.lot.index');
+    }
+
+    //kemaskini end
 }

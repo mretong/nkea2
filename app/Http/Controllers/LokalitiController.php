@@ -65,4 +65,46 @@ class LokalitiController extends Controller
 
     	return redirect()->route('members.lokaliti.index');
     }
+
+    //kemaskini start
+    public function show($id)
+    {
+        $ppk = Lokaliti::findOrFail($id);
+        $territorys = Wilayah::pluck('nama','id');
+
+        return view('lokaliti.show', compact('ppk','territorys'));
+    }
+
+    public function update($id, Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
+            'wilayah_id'  =>  'required|numeric',
+            'nama'        => 'required|min:3',
+            'kod'         => 'required|min:2'
+        ]);
+
+        if($validation->fails()) {
+            return redirect()->route('members.lokaliti.show')
+                ->withErrors($validation)
+                ->withInputs();
+        }
+        
+        $lokaliti = Lokaliti::find($id);
+
+        $lokaliti->wilayah_id   =   strtoupper($request->get('wilayah_id'));
+        $lokaliti->nama         =   strtoupper($request->get('nama'));
+        $lokaliti->kod          =   strtoupper($request->get('kod'));
+
+        $lokaliti->save();
+
+        if($lokaliti) 
+            Session::flash('message', 'Berjaya. Data telah dikemaskini.');
+        else
+            Session::flash('message', 'Gagal. Data gagal dikemaskini.');
+
+        return redirect()->route('members.lokaliti.index');
+    }
+
+    //kemaskini end
 }

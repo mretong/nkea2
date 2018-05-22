@@ -27,6 +27,7 @@
 				<td><center>{{ $local->wilayah->nama }}</td>
 				
 				<td><center>					
+					<a href="{{ route('members.lokaliti.show', ['id' => $local->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
 					<a href="{{ route('members.lokaliti.hapus', ['id' => $local->id]) }}"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
 								

@@ -75,4 +75,54 @@ class BlokController extends Controller
 
     	return redirect()->route('members.blok.index');
     }
+
+    //kemaskini start
+    public function show($id)
+    {
+        $blocks = Blok::findOrFail($id);
+        $lokaliti = Lokaliti::pluck('nama','id');
+        $pakej = Pakej::pluck('nama','id');
+        $fasa = Fasa::pluck('nama','id');
+
+        return view('blok.show', compact('blocks','lokaliti','pakej','fasa'));
+    }
+
+    public function update($id, Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
+            'nama'          => 'required|min:3',
+            'jum_lot_total' => 'required|min:1',
+            'anggaran_kos'  => 'required|min:1',
+            'lokaliti_id'   => 'required|numeric',
+            'fasa_id'       => 'required|numeric',
+            'pakej_id'      => 'required|numeric'
+        ]);
+
+        if($validation->fails()) {
+            return redirect()->route('members.blok.show')
+                ->withErrors($validation)
+                ->withInputs();
+        }
+        
+        $blok = Blok::find($id);
+
+        $blok->nama             =   strtoupper($request->get('nama'));
+        $blok->jum_lot_total    =   strtoupper($request->get('jum_lot_total'));
+        $blok->anggaran_kos     =   strtoupper($request->get('anggaran_kos'));
+        $blok->lokaliti_id      =   strtoupper($request->get('lokaliti_id'));
+        $blok->fasa_id          =   strtoupper($request->get('fasa_id'));
+        $blok->pakej_id         =   strtoupper($request->get('pakej_id'));
+
+        $blok->save();
+
+        if($blok) 
+            Session::flash('message', 'Berjaya. Data telah dikemaskini.');
+        else
+            Session::flash('message', 'Gagal. Data gagal dikemaskini.');
+
+        return redirect()->route('members.blok.index');
+    }
+
+    //kemaskini end
 }

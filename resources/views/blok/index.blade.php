@@ -27,6 +27,7 @@
 				<td><center>{{ $block->lokaliti->nama }}</td>
 				
 				<td><center>					
+					<a href="{{ route('members.blok.show', ['id' => $block->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
 					<a href="{{ route('members.blok.hapus', ['id' => $block->id]) }}"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
 								

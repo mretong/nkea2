@@ -204,25 +204,38 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 
 
 	//Lokaliti
-	Route::get('/lokaliti', [
-		'as'	=>	'lokaliti.index',
-		'uses'	=>	'LokalitiController@index'
-	]);
+	Route::group(['prefix' => 'lokaliti'], function() {
 
-	Route::get('/lokaliti/create', [
-		'as'	=>	'lokaliti.create',
-		'uses'	=>	'LokalitiController@create'
-	]);
+		Route::get('/', [
+			'as'	=>	'lokaliti.index',
+			'uses'	=>	'LokalitiController@index'
+		]);
 
-	Route::post('/lokaliti/create', [
-		'as'	=>	'lokaliti.createPost',
-		'uses'	=>	'LokalitiController@createPost'
-	]);
+		Route::get('/create', [
+			'as'	=>	'lokaliti.create',
+			'uses'	=>	'LokalitiController@create'
+		]);
 
-	Route::get('/lokaliti/hapus/{id}', [
-		'as'	=>	'lokaliti.hapus',
-		'uses'	=>	'LokalitiController@hapus'
-	]);
+		Route::post('/create', [
+			'as'	=>	'lokaliti.createPost',
+			'uses'	=>	'LokalitiController@createPost'
+		]);
+
+		Route::get('/hapus/{id}', [
+			'as'	=>	'lokaliti.hapus',
+			'uses'	=>	'LokalitiController@hapus'
+		]);
+
+		Route::get('/show/{id}', [
+			'as'	=>	'lokaliti.show',
+			'uses'	=>	'LokalitiController@show'
+		]);
+		
+		Route::post('/show/{id}',[
+			'as'	=>	'lokaliti.update',
+			'uses'	=>	'LokalitiController@update'
+		]);
+	});
 
 
 
@@ -262,79 +275,109 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 
 
 	//Blok
-	Route::get('/blok', [
-		'as'	=>	'blok.index',
-		'uses'	=>	'BlokController@index'
-	]);
+	Route::group(['prefix' => 'blok'], function() {
 
-	Route::get('/blok/create', [
-		'as'	=>	'blok.create',
-		'uses'	=>	'BlokController@create'
-	]);
+		Route::get('/', [
+			'as'	=>	'blok.index',
+			'uses'	=>	'BlokController@index'
+		]);
 
-	Route::post('/blok/create', [
-		'as'	=>	'blok.createPost',
-		'uses'	=>	'BlokController@createPost'
-	]);
+		Route::get('/create', [
+			'as'	=>	'blok.create',
+			'uses'	=>	'BlokController@create'
+		]);
 
-	Route::get('/blok/hapus/{id}', [
-		'as'	=>	'blok.hapus',
-		'uses'	=>	'BlokController@hapus'
-	]);
+		Route::post('/create', [
+			'as'	=>	'blok.createPost',
+			'uses'	=>	'BlokController@createPost'
+		]);
+
+		Route::get('/hapus/{id}', [
+			'as'	=>	'blok.hapus',
+			'uses'	=>	'BlokController@hapus'
+		]);
+
+		Route::get('/show/{id}', [
+			'as'	=>	'blok.show',
+			'uses'	=>	'BlokController@show'
+		]);
+		
+		Route::post('/show/{id}',[
+			'as'	=>	'blok.update',
+			'uses'	=>	'BlokController@update'
+		]);
+	});
 
 
 	//Lot
-	Route::get('/lot', [
-		'as'	=>	'lot.index',
-		'uses'	=>	'LotController@index'
-	]);
+	Route::group(['prefix' => 'lot'], function() {
 
-	Route::get('/lot/create', [
-		'as'	=>	'lot.create',
-		'uses'	=>	'LotController@create'
-	]);
+		Route::get('/', [
+			'as'	=>	'lot.index',
+			'uses'	=>	'LotController@index'
+		]);
 
-	Route::post('/lot/create', [
-		'as'	=>	'lot.createPost',
-		'uses'	=>	'LotController@createPost'
-	]);
+		Route::get('/create', [
+			'as'	=>	'lot.create',
+			'uses'	=>	'LotController@create'
+		]);
 
-	Route::get('/lot/hapus/{id}', [
-		'as'	=>	'lot.hapus',
-		'uses'	=>	'LotController@hapus'
-	]);
+		Route::post('/create', [
+			'as'	=>	'lot.createPost',
+			'uses'	=>	'LotController@createPost'
+		]);
+
+		Route::get('/hapus/{id}', [
+			'as'	=>	'lot.hapus',
+			'uses'	=>	'LotController@hapus'
+		]);
+
+		Route::get('/show/{id}', [
+			'as'	=>	'lot.show',
+			'uses'	=>	'LotController@show'
+		]);
+		
+		Route::post('/show/{id}',[
+			'as'	=>	'lot.update',
+			'uses'	=>	'LotController@update'
+		]);
+	});
 
 
 	//Warta
-	Route::get('/warta', [
-		'as'	=>	'warta.index',
-		'uses'	=>	'WartaController@index'
-	]);
+	Route::group(['prefix' => 'warta'], function() {
+		
+		Route::get('/', [
+			'as'	=>	'warta.index',
+			'uses'	=>	'WartaController@index'
+		]);
 
-	Route::get('/warta/create', [
-		'as'	=>	'warta.create',
-		'uses'	=>	'WartaController@create'
-	]);
+		Route::get('/create', [
+			'as'	=>	'warta.create',
+			'uses'	=>	'WartaController@create'
+		]);
 
-	Route::post('/warta/create', [
-		'as'	=>	'warta.createPost',
-		'uses'	=>	'WartaController@createPost'
-	]);
+		Route::post('/create', [
+			'as'	=>	'warta.createPost',
+			'uses'	=>	'WartaController@createPost'
+		]);
 
-	Route::get('/warta/hapus/{id}', [
-		'as'	=>	'warta.hapus',
-		'uses'	=>	'WartaController@hapus'
-	]);
+		Route::get('/hapus/{id}', [
+			'as'	=>	'warta.hapus',
+			'uses'	=>	'WartaController@hapus'
+		]);
 
-	Route::get('warta/{warta}', [
-		'as'	=>	'warta.show',
-		'uses'	=>	'WartaController@show'
-	]);
+		Route::get('/show/{id}', [
+			'as'	=>	'warta.show',
+			'uses'	=>	'WartaController@show'
+		]);
 
-	Route::post('warta/{warta}',[
-		'as'	=>	'warta.update',
-		'uses'	=>	'WartaController@update'
-	]);
+		Route::post('/show/{id}',[
+			'as'	=>	'warta.update',
+			'uses'	=>	'WartaController@update'
+		]);
+	});
+
 
 
 

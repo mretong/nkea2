@@ -2,33 +2,32 @@
 
 @section('content')
 
-<h1>Kemaskini Maklumat Lokaliti</h1>
 
-<hr />
+	<a href="{{ route('members.lokaliti.index') }}"><button class="btn btn-success">Senarai Negeri</button></a><br /><br />
 
-{!! Form::model($ptj, ['route' => ['lokaliti.update', $ptj->id], 'method' => 'PATCH']) !!}
+	@include('messages._formErrors')
 
-	<div class="form-group row">
-		{!! Form::label('nama', 'Nama PPK',['class'	=>	'form control col-sm-2']) !!}
-		{!! Form::text('nama', null, ['class' => 'form-control col-sm-6' ]) !!}
-	</div>
+	{!! Form::model($ppk, ['route' => ['members.lokaliti.show', $ppk->id]]) !!}
 
-	<div class="form-group row">
-		{!! Form::label('kod', 'Kod PPK',['class'	=>	'form control col-sm-2']) !!}
-		{!! Form::text('kod', null, ['class' => 'form-control col-sm-6']) !!}
-	</div>
+	<table class="table table-bordered table-striped">
+		<tr>
+			<thead><th colspan="2"><h4>Kemaskini Negeri</h4></th></thead>
+		</tr>
+		<tr>
+			<td>{!! Form::label('wilayah', 'Wilayah', ['class'=>'col-sm-6']) !!}</td>
+			<td>{{ Form::select('wilayah_id', $territorys, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Wilayah']) }}</td>
+		</tr>
+		<tr>
+			<td width="27%">{!! Form::label('nama', 'Nama Lokaliti', ['class'=>'form control col-sm-6']) !!}</td>
+			<td>{!! Form::text('nama',null,['class'=>'form-control col-sm-6']) !!}</td>
+		</tr>
+		<tr>
+			<td>{!! Form::label('lokaliti', 'Kod Lokaliti', ['class'=>'col-sm-6']) !!}</td>
+			<td>{!! Form::text('kod',null,['class'=>'form-control col-sm-6']) !!}</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right">{{ Form::submit('Kemaskini', ['class' => 'btn btn-primary']) }}</td>
+		</tr>
+	{!! Form::close() !!}
 
-	<div class="form-group row">
-		{!! Form::label('wilayah', 'Wilayah', ['class'=>'form control col-sm-2']) !!}
-		{!! Form::select('id_wilayah',$wilayah, null, ['class'=>'form-control col-sm-6']) !!}
-	</div>
-
-	<div class="form-group">
-		{!! Form::submit('Kemaskini', ['class' => 'btn btn-primary']) !!}
-		[ <a href="{{ route('lokaliti.index') }}">Kembali</a> ] 
-	</div>
-
-
-{!! Form::close() !!}
-<hr />
 @endsection
