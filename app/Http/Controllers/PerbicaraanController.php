@@ -123,14 +123,16 @@ class PerbicaraanController extends Controller
             'mukim_id'  => 'required|numeric',
             'blok_id'  => 'required|numeric',
             'lot_id'  => 'required|numeric',
-            'pentadbir_id'  => 'required|numeric',
+            'staff_id'  => 'required|numeric',
             'status_id'  => 'required|numeric',
-            'bicara'  => 'required|min:1',
-            'luas'  => 'required|min:1',
-            'harga'  => 'required|min:1',
-            'tuan_tanah'  => 'required|min:1',
+            'bilangan_bicara'  => 'required|min:1',
+            'luas_ambil'  => 'required|min:1',
+            'harga_tanah'  => 'required|min:1',
+            'bil_pemilik'  => 'required|min:1',
             'pampasan'  => 'required|min:1',
-            'lain'  => 'required|min:1',
+            'kos_lain'  => 'required|min:1',
+            'wakil_mada'   => 'required|numeric',
+            'wakil_jps'   => 'required|numeric',
             'jajaran'   => 'required|min:1',
             'catatan'   => 'required|min:1'
         ]);
@@ -141,15 +143,24 @@ class PerbicaraanController extends Controller
                 ->withInputs();
         }
         
-        $bicara = Warta::find($id);
+        $bicara = Perbicaraan::find($id);
 
-        $bicara->blok_id         =   strtoupper($request->get('daerah_id'));
-        $bicara->pakej_id          =   strtoupper($request->get('mukim_id'));
-        $bicara->tarikh_warta          =   strtoupper($request->get('blok_id'));
-        $bicara->jilid_warta          =   strtoupper($request->get('lot_id'));
-        $bicara->jilid_warta          =   strtoupper($request->get('tarikh_bicara'));
-        $bicara->no_warta          =   strtoupper($request->get('pentadbir_id'));
-        $bicara->rujukan          =   strtoupper($request->get('status_id'));
+        $bicara->daerah_id         =   strtoupper($request->get('daerah_id'));
+        $bicara->mukim_id          =   strtoupper($request->get('mukim_id'));
+        $bicara->blok_id          =   strtoupper($request->get('blok_id'));
+        $bicara->lot_id          =   strtoupper($request->get('lot_id'));
+        $bicara->tarikh_1          =   strtoupper($request->get('tarikh_1'));
+        $bicara->staff_id          =   strtoupper($request->get('staff_id'));
+        $bicara->status_id          =   strtoupper($request->get('status_id'));
+        $bicara->bilangan_bicara          =   strtoupper($request->get('bilangan_bicara'));
+        $bicara->luas_ambil          =   strtoupper($request->get('luas_ambil'));
+        $bicara->harga_tanah          =   strtoupper($request->get('harga_tanah'));
+        $bicara->bil_pemilik          =   strtoupper($request->get('bil_pemilik'));
+        $bicara->pampasan          =   strtoupper($request->get('pampasan'));
+        $bicara->kos_lain          =   strtoupper($request->get('kos_lain'));
+        $bicara->wakil_mada          =   strtoupper($request->get('wakil_mada'));
+        $bicara->wakil_jps          =   strtoupper($request->get('wakil_jps'));
+        $bicara->jajaran          =   strtoupper($request->get('jajaran'));
         $bicara->catatan          =   strtoupper($request->get('catatan'));
 
         $bicara->save();

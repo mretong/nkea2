@@ -74,15 +74,16 @@
 			<td>{{ Form::select('wakil_jps', $staff, null, ['class' => 'form-control col-sm-6', 'placeholder' => 'Pilih Wakil JPS']) }}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('kod', 'Jajaran', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::label('jaja', 'Jajaran', ['class'=>'col-sm-8']) !!}</td>
 			<td>{!! Form::text('jajaran',null,['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('kod', 'Catatan', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::label('catat', 'Catatan', ['class'=>'col-sm-8']) !!}</td>
 			<td>{!! Form::text('catatan',null,['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
 			<td colspan="2" align="right">{{ Form::submit('Kemaskini', ['class' => 'btn btn-primary']) }}</td>
 		</tr>
-		{!! Form::close() !!}
+	{!! Form::close() !!}
+
 @endsection

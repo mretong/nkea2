@@ -80,11 +80,11 @@ class WartaController extends Controller
     //kemaskini start
     public function show($id)
     {
-        $warrantt = Warta::findOrFail($id);
+        $warrant = Warta::findOrFail($id);
         $blok = Blok::pluck('nama','id');
         $pakej = Pakej::pluck('nama','id');
 
-        return view('warta.show', compact('warrantt','blok','pakej'));
+        return view('warta.show', compact('warrant','blok','pakej'));
     }
 
     public function update($id, Request $request)
@@ -94,7 +94,7 @@ class WartaController extends Controller
             'blok_id'   => 'required|numeric',
             'pakej_id'   => 'required|numeric',
             'tarikh_warta'   => 'required',
-            'jilid'   => 'required|min:2',
+            'jilid_warta'   => 'required|min:2',
             'no_warta'  => 'required|min:2',
             'rujukan'   => 'required|min:2',
             'catatan'  => 'required|min:2'

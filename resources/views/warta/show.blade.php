@@ -7,11 +7,11 @@
 
 	@include('messages._formErrors')
 
-	{!! Form::model($warrantt, ['route' => ['members.warta.show', $warrantt->id]]) !!}
+	{!! Form::model($warrant, ['route' => ['members.warta.show', $warrant->id]]) !!}
 
 	<table class="table table-bordered table-striped">
 		<tr>
-			<thead><th colspan="2"><h4>Kemaskini Negeri</h4></th></thead>
+			<thead><th colspan="2"><h4>Kemaskini Warta</h4></th></thead>
 		</tr>
 		<tr>
 			<td>{!! Form::label('nama', 'Blok', ['class'=>'col-sm-6']) !!}</td>
@@ -27,18 +27,18 @@
 		</tr>
 		<tr>
 			<td>{!! Form::label('jilid', 'Jilid Warta', ['class'=>'col-sm-8']) !!}</td>
-			<td>{!! Form::text('jilid_warta', null,['class'=>'form-control col-sm-6']) !!}</td>
+			<td>{!! Form::text('jilid_warta',null,['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('warta', 'No.Warta', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::label('no_warta', 'No.Warta', ['class'=>'col-sm-8']) !!}</td>
 			<td>{!! Form::text('no_warta',null,['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('rujuk', 'Rujukan', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::label('rujukan', 'Rujukan', ['class'=>'col-sm-8']) !!}</td>
 			<td>{!! Form::text('rujukan',null,['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
-			<td>{!! Form::label('catat', 'Catatan', ['class'=>'col-sm-8']) !!}</td>
+			<td>{!! Form::label('catatan', 'Catatan', ['class'=>'col-sm-8']) !!}</td>
 			<td>{!! Form::text('catatan',null,['class'=>'form-control col-sm-6']) !!}</td>
 		</tr>
 		<tr>
