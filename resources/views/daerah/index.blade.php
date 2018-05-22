@@ -38,7 +38,7 @@
 		    </tr>
 		@endforelse
 
-		@if($districts->count() > 10)
+		@if($districts->count() >= 10 || $districts->count() <= 10)
 			<tr>
 				<td colspan="5" align="center">{{ $districts->render() }}</td>
 			</tr>

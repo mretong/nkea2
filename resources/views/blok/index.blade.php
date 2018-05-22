@@ -38,7 +38,7 @@
 		    </tr>
 		@endforelse
 
-		@if($blocks->count() > 10)
+		@if($blocks->count() >= 10 || $blocks->count() <= 10)
 			<tr>
 				<td colspan="5" align="center">{{ $blocks->render() }}</td>
 			</tr>

@@ -34,7 +34,7 @@
 		    </tr>
 		@endforelse
 
-		@if($stays->count() > 10)
+		@if($stays->count() >= 10 || $stays->count() <= 10)
 			<tr>
 				<td colspan="4" align="center">{{ $stays->render() }}</td>
 			</tr>
