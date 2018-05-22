@@ -24,7 +24,10 @@
 				<td><center>{{ $bank->nama }}</td>
 				<td><center>{{ $bank->kod }}</td>
 				
-				<td><center><a href="{{ route('members.bank.hapus', ['id' => $bank->id]) }}"><button class="btn btn-danger">Hapus</button></a></center></td>
+				<td><center>
+					<a href="{{ route('members.bank.show', ['id' => $bank->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
+					<a href="{{ route('members.bank.hapus', ['id' => $bank->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+				</center></td>
 								
 			</tr>	
 		@empty

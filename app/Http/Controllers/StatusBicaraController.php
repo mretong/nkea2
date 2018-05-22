@@ -62,4 +62,43 @@ class StatusBicaraController extends Controller
 
     	return redirect()->route('members.status_bicara.index');
     }
+
+    //kemaskini start
+    public function show($id)
+    {
+        $bicara = StatusBicara::findOrFail($id);
+
+        return view('status_bicara.show', compact('bicara'));
+    }
+
+    public function update($id, Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
+            'nama'  => 'required|min:3',
+            'kod'   => 'required|min:2'
+        ]);
+
+        if($validation->fails()) {
+            return redirect()->route('members.status_bicara.show')
+                ->withErrors($validation)
+                ->withInputs();
+        }
+        
+        $status_bicara = StatusBicara::find($id);
+
+        $status_bicara->nama         =   strtoupper($request->get('nama'));
+        $status_bicara->kod          =   strtoupper($request->get('kod'));
+
+        $status_bicara->save();
+
+        if($status_bicara) 
+            Session::flash('message', 'Berjaya. Data telah dikemaskini.');
+        else
+            Session::flash('message', 'Gagal. Data gagal dikemaskini.');
+
+        return redirect()->route('members.status_bicara.index');
+    }
+
+    //kemaskini end
 }

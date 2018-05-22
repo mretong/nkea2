@@ -29,7 +29,7 @@ class StaffController extends Controller
 
         $validation = Validator::make($request->all(), [
             'ptj_id' => 'required|numeric',
-            'nama'      => 'required|min:3'
+            'nama'   => 'required|min:3'
         ]);
 
 
@@ -64,4 +64,44 @@ class StaffController extends Controller
         return redirect()->route('members.staff.index');
 
     }
+
+    //kemaskini start
+    public function show($id)
+    {
+        $staff = Staff::findOrFail($id);
+        $ptjs = Ptj::pluck('nama', 'id');
+
+        return view('staff.show', compact('staff','ptjs'));
+    }
+
+    public function update($id, Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
+            'ptj_id' => 'required|numeric',
+            'nama'   => 'required|min:3'
+        ]);
+
+        if($validation->fails()) {
+            return redirect()->route('members.staff.show')
+                ->withErrors($validation)
+                ->withInputs();
+        }
+        
+        $pekerja = Staff::find($id);
+
+        $pekerja->ptj_id        =   strtoupper($request->get('ptj_id'));
+        $pekerja->nama          =   strtoupper($request->get('nama'));
+
+        $pekerja->save();
+
+        if($pekerja) 
+            Session::flash('message', 'Berjaya. Data telah dikemaskini.');
+        else
+            Session::flash('message', 'Gagal. Data gagal dikemaskini.');
+
+        return redirect()->route('members.staff.index');
+    }
+
+    //kemaskini end
 }

@@ -382,35 +382,38 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 
 
 	//Perbicaraan
-	Route::get('/bicara', [
-		'as'	=>	'bicara.index',
-		'uses'	=>	'PerbicaraanController@index'
-	]);
+	Route::group(['prefix' => 'bicara'], function() {
 
-	Route::get('/bicara/create', [
-		'as'	=>	'bicara.create',
-		'uses'	=>	'PerbicaraanController@create'
-	]);
+		Route::get('/', [
+			'as'	=>	'bicara.index',
+			'uses'	=>	'PerbicaraanController@index'
+		]);
 
-	Route::post('/bicara/create', [
-		'as'	=>	'bicara.createPost',
-		'uses'	=>	'PerbicaraanController@createPost'
-	]);
+		Route::get('/create', [
+			'as'	=>	'bicara.create',
+			'uses'	=>	'PerbicaraanController@create'
+		]);
 
-	Route::get('/bicara/hapus/{id}', [
-		'as'	=>	'bicara.hapus',
-		'uses'	=>	'PerbicaraanController@hapus'
-	]);
+		Route::post('/create', [
+			'as'	=>	'bicara.createPost',
+			'uses'	=>	'PerbicaraanController@createPost'
+		]);
 
-	Route::get('bicara/{bicara}', [
-		'as'	=>	'bicara.show',
-		'uses'	=>	'PerbicaraanController@show'
-	]);
+		Route::get('/hapus/{id}', [
+			'as'	=>	'bicara.hapus',
+			'uses'	=>	'PerbicaraanController@hapus'
+		]);
 
-	Route::post('bicara/{bicara}',[
-		'as'	=>	'bicara.update',
-		'uses'	=>	'PerbicaraanController@update'
-	]);
+		Route::get('/show/{id}', [
+			'as'	=>	'bicara.show',
+			'uses'	=>	'PerbicaraanController@show'
+		]);
+
+		Route::post('/show/{id}',[
+			'as'	=>	'bicara.update',
+			'uses'	=>	'PerbicaraanController@update'
+		]);
+	});
 
 
 
@@ -505,48 +508,74 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 
 
 	//Bank
-	Route::get('/bank', [
-		'as'	=>	'bank.index',
-		'uses'	=>	'BankController@index'
-	]);
+	Route::group(['prefix' => 'bank'], function() {
 
-	Route::get('/bank/create', [
-		'as'	=>	'bank.create',
-		'uses'	=>	'BankController@create'
-	]);
+		Route::get('/bank', [
+			'as'	=>	'bank.index',
+			'uses'	=>	'BankController@index'
+		]);
 
-	Route::post('/bank/create', [
-		'as'	=>	'bank.createPost',
-		'uses'	=>	'BankController@createPost'
-	]);
+		Route::get('/bank/create', [
+			'as'	=>	'bank.create',
+			'uses'	=>	'BankController@create'
+		]);
 
-	Route::get('/bank/hapus/{id}', [
-		'as'	=>	'bank.hapus',
-		'uses'	=>	'BankController@hapus'
-	]);
+		Route::post('/bank/create', [
+			'as'	=>	'bank.createPost',
+			'uses'	=>	'BankController@createPost'
+		]);
+
+		Route::get('/bank/hapus/{id}', [
+			'as'	=>	'bank.hapus',
+			'uses'	=>	'BankController@hapus'
+		]);
+
+		Route::get('/show/{id}', [
+			'as'	=>	'bank.show',
+			'uses'	=>	'BankController@show'
+		]);
+
+		Route::post('/show/{id}',[
+			'as'	=>	'bank.update',
+			'uses'	=>	'BankController@update'
+		]);
+	});
 
 	
 
 	//Status Aduan
-	Route::get('/status_aduan', [
-		'as'	=>	'status_aduan.index',
-		'uses'	=>	'StatusAduanController@index'
-	]);
+	Route::group(['prefix' => 'status_aduan'], function() {
 
-	Route::get('/status_aduan/create', [
-		'as'	=>	'status_aduan.create',
-		'uses'	=>	'StatusAduanController@create'
-	]);
+		Route::get('/', [
+			'as'	=>	'status_aduan.index',
+			'uses'	=>	'StatusAduanController@index'
+		]);
 
-	Route::post('/status_aduan/create', [
-		'as'	=>	'status_aduan.createPost',
-		'uses'	=>	'StatusAduanController@createPost'
-	]);
+		Route::get('/create', [
+			'as'	=>	'status_aduan.create',
+			'uses'	=>	'StatusAduanController@create'
+		]);
 
-	Route::get('/status_aduan/hapus/{id}', [
-		'as'	=>	'status_aduan.hapus',
-		'uses'	=>	'StatusAduanController@hapus'
-	]);
+		Route::post('/create', [
+			'as'	=>	'status_aduan.createPost',
+			'uses'	=>	'StatusAduanController@createPost'
+		]);
+
+		Route::get('/hapus/{id}', [
+			'as'	=>	'status_aduan.hapus',
+			'uses'	=>	'StatusAduanController@hapus'
+		]);
+
+		Route::get('/show/{id}', [
+			'as'	=>	'status_aduan.show',
+			'uses'	=>	'StatusAduanController@show'
+		]);
+
+		Route::post('/show/{id}',[
+			'as'	=>	'status_aduan.update',
+			'uses'	=>	'StatusAduanController@update'
+		]);
+	});
 
 
 
@@ -574,93 +603,145 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 
 
 	//Ptj
-	Route::get('/ptj', [
-		'as'	=>	'ptj.index',
-		'uses'	=>	'PtjController@index'
-	]);
+	Route::group(['prefix' => 'ptj'], function() {
+		
+		Route::get('/', [
+			'as'	=>	'ptj.index',
+			'uses'	=>	'PtjController@index'
+		]);
 
-	Route::get('/ptj/create', [
-		'as'	=>	'ptj.create',
-		'uses'	=>	'PtjController@create'
-	]);
+		Route::get('/create', [
+			'as'	=>	'ptj.create',
+			'uses'	=>	'PtjController@create'
+		]);
 
-	Route::post('/ptj/create', [
-		'as'	=>	'ptj.createPost',
-		'uses'	=>	'PtjController@createPost'
-	]);
+		Route::post('/create', [
+			'as'	=>	'ptj.createPost',
+			'uses'	=>	'PtjController@createPost'
+		]);
 
-	Route::get('/ptj/hapus/{id}', [
-		'as'	=>	'ptj.hapus',
-		'uses'	=>	'PtjController@hapus'
-	]);
+		Route::get('/hapus/{id}', [
+			'as'	=>	'ptj.hapus',
+			'uses'	=>	'PtjController@hapus'
+		]);
+
+		Route::get('/show/{id}', [
+			'as'	=>	'ptj.show',
+			'uses'	=>	'PtjController@show'
+		]);
+
+		Route::post('/show/{id}',[
+			'as'	=>	'ptj.update',
+			'uses'	=>	'PtjController@update'
+		]);
+	});
 
 
 	//Staff
-	Route::get('/staff', [
-		'as'	=>	'staff.index',
-		'uses'	=>	'StaffController@index'
-	]);
+	Route::group(['prefix' => 'staff'], function() {
 
-	Route::get('/staff/create', [
-		'as'	=>	'staff.create',
-		'uses'	=>	'StaffController@create'
-	]);
+		Route::get('/', [
+			'as'	=>	'staff.index',
+			'uses'	=>	'StaffController@index'
+		]);
 
-	Route::post('/staff/create', [
-		'as'	=>	'staff.createPost',
-		'uses'	=>	'StaffController@createPost'
-	]);
+		Route::get('/create', [
+			'as'	=>	'staff.create',
+			'uses'	=>	'StaffController@create'
+		]);
 
-	Route::get('/staff/hapus/{id}', [
-		'as'	=>	'staff.hapus',
-		'uses'	=>	'StaffController@hapus'
-	]);
+		Route::post('/create', [
+			'as'	=>	'staff.createPost',
+			'uses'	=>	'StaffController@createPost'
+		]);
+
+		Route::get('/hapus/{id}', [
+			'as'	=>	'staff.hapus',
+			'uses'	=>	'StaffController@hapus'
+		]);
+
+		Route::get('/show/{id}', [
+			'as'	=>	'staff.show',
+			'uses'	=>	'StaffController@show'
+		]);
+
+		Route::post('/show/{id}',[
+			'as'	=>	'staff.update',
+			'uses'	=>	'StaffController@update'
+		]);
+	});
 
 
 
 	//StatusBicara
-	Route::get('/status_bicara', [
-		'as'	=>	'status_bicara.index',
-		'uses'	=>	'StatusBicaraController@index'
-	]);
+	Route::group(['prefix' => 'status_bicara'], function() {
 
-	Route::get('/status_bicara/create', [
-		'as'	=>	'status_bicara.create',
-		'uses'	=>	'StatusBicaraController@create'
-	]);
+		Route::get('/', [
+			'as'	=>	'status_bicara.index',
+			'uses'	=>	'StatusBicaraController@index'
+		]);
 
-	Route::post('/status_bicara/create', [
-		'as'	=>	'status_bicara.createPost',
-		'uses'	=>	'StatusBicaraController@createPost'
-	]);
+		Route::get('/create', [
+			'as'	=>	'status_bicara.create',
+			'uses'	=>	'StatusBicaraController@create'
+		]);
 
-	Route::get('/status_bicara/hapus/{id}', [
-		'as'	=>	'status_bicara.hapus',
-		'uses'	=>	'StatusBicaraController@hapus'
-	]);
+		Route::post('/create', [
+			'as'	=>	'status_bicara.createPost',
+			'uses'	=>	'StatusBicaraController@createPost'
+		]);
+
+		Route::get('/hapus/{id}', [
+			'as'	=>	'status_bicara.hapus',
+			'uses'	=>	'StatusBicaraController@hapus'
+		]);
+
+		Route::get('/show/{id}', [
+			'as'	=>	'status_bicara.show',
+			'uses'	=>	'StatusBicaraController@show'
+		]);
+
+		Route::post('/show/{id}',[
+			'as'	=>	'status_bicara.update',
+			'uses'	=>	'StatusBicaraController@update'
+		]);
+	});
 
 
 
 
 	//KategoriBayaran
-	Route::get('/kategori', [
-		'as'	=>	'kategori.index',
-		'uses'	=>	'KategoriPampasanController@index'
-	]);
+	Route::group(['prefix' => 'kategori'], function() {
 
-	Route::get('/kategori/create', [
-		'as'	=>	'kategori.create',
-		'uses'	=>	'KategoriPampasanController@create'
-	]);
+		Route::get('/', [
+			'as'	=>	'kategori.index',
+			'uses'	=>	'KategoriPampasanController@index'
+		]);
 
-	Route::post('/kategori/create', [
-		'as'	=>	'kategori.createPost',
-		'uses'	=>	'KategoriPampasanController@createPost'
-	]);
+		Route::get('/create', [
+			'as'	=>	'kategori.create',
+			'uses'	=>	'KategoriPampasanController@create'
+		]);
 
-	Route::get('/kategori/hapus/{id}', [
-		'as'	=>	'kategori.hapus',
-		'uses'	=>	'KategoriPampasanController@hapus'
-	]);
+		Route::post('/create', [
+			'as'	=>	'kategori.createPost',
+			'uses'	=>	'KategoriPampasanController@createPost'
+		]);
+
+		Route::get('/hapus/{id}', [
+			'as'	=>	'kategori.hapus',
+			'uses'	=>	'KategoriPampasanController@hapus'
+		]);
+
+		Route::get('/show/{id}', [
+			'as'	=>	'kategori.show',
+			'uses'	=>	'KategoriPampasanController@show'
+		]);
+
+		Route::post('/show/{id}',[
+			'as'	=>	'kategori.update',
+			'uses'	=>	'KategoriPampasanController@update'
+		]);
+	});
 
 }); // end of auth group

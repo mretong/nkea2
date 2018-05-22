@@ -24,7 +24,10 @@
 				<td><center>{{ $comp->nama }}</td>
 				<td><center>{{ $comp->kod }}</td>
 				
-				<td><center><a href="{{ route('members.status_bicara.hapus', ['id' => $comp->id]) }}"><button class="btn btn-danger">Hapus</button></a></center></td>
+				<td><center>
+					<a href="{{ route('members.status_bicara.show', ['id' => $comp->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
+					<a href="{{ route('members.status_bicara.hapus', ['id' => $comp->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+				</center></td>
 								
 			</tr>	
 		@empty

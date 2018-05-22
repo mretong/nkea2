@@ -24,7 +24,10 @@
 				<td><center>{{ $ptj->nama }}</td>
 				<td><center>{{ $ptj->kod }}</td>
 				
-				<td><center><a href="{{ route('members.ptj.hapus', ['id' => $ptj->id]) }}"><button class="btn btn-danger">Hapus</button></a></center></td>
+				<td><center>
+					<a href="{{ route('members.ptj.show', ['id' => $ptj->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
+					<a href="{{ route('members.ptj.hapus', ['id' => $ptj->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+				</center></td>
 								
 			</tr>	
 		@empty

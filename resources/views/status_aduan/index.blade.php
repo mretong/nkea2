@@ -24,7 +24,10 @@
 				<td><center>{{ $comp->nama }}</td>
 				<td><center>{{ $comp->kod }}</td>
 				
-				<td><center><a href="{{ route('members.status_aduan.hapus', ['id' => $comp->id]) }}"><button class="btn btn-danger">Hapus</button></a></center></td>
+				<td><center>
+					<a href="{{ route('members.status_aduan.show', ['id' => $comp->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
+					<a href="{{ route('members.status_aduan.hapus', ['id' => $comp->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+				</center></td>
 								
 			</tr>	
 		@empty
@@ -33,7 +36,7 @@
 		    </tr>
 		@endforelse
 
-		@if($comps->count() > 10)
+		@if($comps->count() >= 10 || $comps->count() <= 10)
 			<tr>
 				<td colspan="4" align="center">{{ $comps->render() }}</td>
 			</tr>

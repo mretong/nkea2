@@ -26,7 +26,7 @@ class StatusAduanController extends Controller
 
     	$validation = Validator::make($request->all(), [
     		'nama'	=> 'required|min:3',
-    		'kod'	=> 'required|min:3'
+    		'kod'	=> 'required|min:2'
     	]);
 
     	if($validation->fails()) {
@@ -53,10 +53,6 @@ class StatusAduanController extends Controller
 
     	$state = StatusAduan::findOrFail($id)->delete();
 
-    	// delete jugak daerah
-    	$daerah = Daerah::where('negeri_id', $id)->delete();
-
-
     	if($state)
     		Session::flash('message', 'Berjaya. Data telah dihapus.');
     	else
@@ -65,4 +61,43 @@ class StatusAduanController extends Controller
 
     	return redirect()->route('members.status_aduan.index');
     }
+
+    //kemaskini start
+    public function show($id)
+    {
+        $saduan = StatusAduan::findOrFail($id);
+
+        return view('status_aduan.show', compact('saduan'));
+    }
+
+    public function update($id, Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
+            'nama'      => 'required|min:3',
+            'kod'       => 'required|min:2'
+        ]);
+
+        if($validation->fails()) {
+            return redirect()->route('members.status_aduan.show')
+                ->withErrors($validation)
+                ->withInputs();
+        }
+        
+        $aduan = StatusAduan::find($id);
+
+        $aduan->nama         =   strtoupper($request->get('nama'));
+        $aduan->kod          =   strtoupper($request->get('kod'));
+
+        $aduan->save();
+
+        if($aduan) 
+            Session::flash('message', 'Berjaya. Data telah dikemaskini.');
+        else
+            Session::flash('message', 'Gagal. Data gagal dikemaskini.');
+
+        return redirect()->route('members.status_aduan.index');
+    }
+
+    //kemaskini end
 }

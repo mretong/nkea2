@@ -62,4 +62,43 @@ class KategoriPampasanController extends Controller
 
     	return redirect()->route('members.kategori.index');
     }
+
+    //kemaskini start
+    public function show($id)
+    {
+        $kategori = KategoriPampasan::findOrFail($id);
+
+        return view('kategori.show', compact('kategori'));
+    }
+
+    public function update($id, Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
+            'nama'      => 'required|min:3',
+            'kod'       => 'required|min:2'
+        ]);
+
+        if($validation->fails()) {
+            return redirect()->route('members.kategori.show')
+                ->withErrors($validation)
+                ->withInputs();
+        }
+        
+        $pampasan = KategoriPampasan::find($id);
+
+        $pampasan->nama         =   strtoupper($request->get('nama'));
+        $pampasan->kod          =   strtoupper($request->get('kod'));
+
+        $pampasan->save();
+
+        if($pampasan) 
+            Session::flash('message', 'Berjaya. Data telah dikemaskini.');
+        else
+            Session::flash('message', 'Gagal. Data gagal dikemaskini.');
+
+        return redirect()->route('members.kategori.index');
+    }
+
+    //kemaskini end
 }

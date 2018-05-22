@@ -24,7 +24,10 @@
 				<td><center>{{ $kat->nama }}</td>
 				<td><center>{{ $kat-> kod }}</td>
 				
-				<td><center><a href="{{ route('members.kategori.hapus', ['id' => $kat->id]) }}"><button class="btn btn-danger">Hapus</button></a></center></td>
+				<td><center>
+					<a href="{{ route('members.kategori.show', ['id' => $kat->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
+					<a href="{{ route('members.kategori.hapus', ['id' => $kat->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+				</center></td>
 								
 			</tr>	
 		@empty
