@@ -69,4 +69,47 @@ class MukimController extends Controller
         return redirect()->route('members.mukim.index');
 
     }
+
+    //kemaskini start
+    public function show($id)
+    {
+        $stay = Mukim::findOrFail($id);
+        $district = Daerah::pluck('nama', 'id');
+        $territory = Wilayah::pluck('nama','id');
+
+        return view('mukim.show', compact('stay','district','territory'));
+    }
+
+    public function update($id, Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
+            'daerah_id'     => 'required|numeric',
+            'wilayah_id'    => 'required|numeric',
+            'nama'          => 'required|min:3'
+        ]);
+
+        if($validation->fails()) {
+            return redirect()->route('members.mukim.show')
+                ->withErrors($validation)
+                ->withInputs();
+        }
+        
+        $mukim = Mukim::find($id);
+
+        $mukim->daerah_id    =   strtoupper($request->get('daerah_id'));
+        $mukim->nama         =   strtoupper($request->get('nama'));
+        $mukim->wilayah_id   =   strtoupper($request->get('wilayah_id'));
+
+        $mukim->save();
+
+        if($mukim) 
+            Session::flash('message', 'Berjaya. Data telah dikemaskini.');
+        else
+            Session::flash('message', 'Gagal. Data gagal dikemaskini.');
+
+        return redirect()->route('members.mukim.index');
+    }
+
+    //kemaskini end
 }

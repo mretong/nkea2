@@ -24,7 +24,10 @@
 				<td><center>{{ $phase->nama }}</td>
 				<td><center>{{ $phase->kod }}</td>
 				
-				<td><center><a href="{{ route('members.fasa.hapus', ['id' => $phase->id]) }}"><button class="btn btn-danger">Hapus</button></a></center></td>
+				<td><center>
+					<a href="{{ route('members.fasa.show', ['id' => $phase->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
+					<a href="{{ route('members.fasa.hapus', ['id' => $phase->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+				</center></td>
 								
 			</tr>	
 		@empty

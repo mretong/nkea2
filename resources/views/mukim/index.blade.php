@@ -24,7 +24,8 @@
 				<td><center>{{ $stay->nama }}</td>
 				<td><center>{{ $stay->daerah->nama }}</td>
 				
-				<td><center><a href="{{ route('members.mukim.hapus', ['id' => $stay->id]) }}"><button class="btn btn-danger">Hapus</button></a></center></td>
+				<td><center><a href="{{ route('members.mukim.show', ['id' => $stay->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
+				<a href="{{ route('members.mukim.hapus', ['id' => $stay->id]) }}"><button class="btn btn-danger">Hapus</button></a></center></td>
 								
 			</tr>	
 		@empty

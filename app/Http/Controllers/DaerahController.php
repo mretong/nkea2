@@ -86,7 +86,7 @@ class DaerahController extends Controller
         $validation = Validator::make($request->all(), [
             'negeri_id' => 'required|numeric',
             'nama'      => 'required|min:3',
-            'kod'       => 'required|min:3'
+            'kod'       => 'required|min:2'
         ]);
 
         if($validation->fails()) {
@@ -97,6 +97,7 @@ class DaerahController extends Controller
         
         $daerah = Daerah::find($id);
 
+        $daerah->negeri_id    =   strtoupper($request->get('negeri_id'));
         $daerah->nama         =   strtoupper($request->get('nama'));
         $daerah->kod          =   strtoupper($request->get('kod'));
 

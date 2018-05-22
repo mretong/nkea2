@@ -27,6 +27,7 @@
 				<td><center>{{ $territory->daerah->nama }}</td>
 				
 				<td><center>					
+					<a href="{{ route('members.wilayah.show', ['id' => $territory->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
 					<a href="{{ route('members.wilayah.hapus', ['id' => $territory->id]) }}"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
 								

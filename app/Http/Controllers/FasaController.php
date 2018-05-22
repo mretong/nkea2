@@ -65,4 +65,43 @@ class FasaController extends Controller
 
     	return redirect()->route('members.fasa.index');
     }
+
+    //kemaskini start
+    public function show($id)
+    {
+        $phase = Fasa::findOrFail($id);
+
+        return view('fasa.show', compact('phase'));
+    }
+
+    public function update($id, Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
+            'nama'  => 'required|min:3',
+            'kod'   => 'required|min:2'
+        ]);
+
+        if($validation->fails()) {
+            return redirect()->route('members.fasa.show')
+                ->withErrors($validation)
+                ->withInputs();
+        }
+        
+        $fasa = Fasa::find($id);
+
+        $fasa->nama         =   strtoupper($request->get('nama'));
+        $fasa->kod          =   strtoupper($request->get('kod'));
+
+        $fasa->save();
+
+        if($fasa) 
+            Session::flash('message', 'Berjaya. Data telah dikemaskini.');
+        else
+            Session::flash('message', 'Gagal. Data gagal dikemaskini.');
+
+        return redirect()->route('members.fasa.index');
+    }
+
+    //kemaskini end
 }

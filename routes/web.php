@@ -85,12 +85,12 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 			'uses'	=> 'DaerahController@hapus'
 		]);
 
-		Route::get('/{daerah}', [
+		Route::get('/show/{id}', [
 			'as'	=>	'daerah.show',
 			'uses'	=>	'DaerahController@show'
 		]);
 
-		Route::post('/{daerah}',[
+		Route::post('/show/{id}',[
 			'as'	=>	'daerah.update',
 			'uses'	=>	'DaerahController@update'
 		]);
@@ -100,71 +100,107 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 
 
 	//Mukim
-	Route::get('/mukim', [
-		'as'	=> 'mukim.index',
-		'uses'	=> 'MukimController@index'
-	]);
+	Route::group(['prefix' => 'mukim'], function() {
 
-	Route::get('/mukim/create', [
-		'as'	=> 'mukim.create',
-		'uses'	=> 'MukimController@create'
-	]);
+		Route::get('/', [
+			'as'	=> 'mukim.index',
+			'uses'	=> 'MukimController@index'
+		]);
 
-	Route::post('/mukim/create', [
-		'as'	=> 'mukim.createPost',
-		'uses'	=> 'MukimController@createPost'
-	]);
+		Route::get('/create', [
+			'as'	=> 'mukim.create',
+			'uses'	=> 'MukimController@create'
+		]);
 
-	Route::get('/mukim/hapus/{id}', [
-		'as'	=> 'mukim.hapus',
-		'uses'	=> 'MukimController@hapus'
-	]);
+		Route::post('/create', [
+			'as'	=> 'mukim.createPost',
+			'uses'	=> 'MukimController@createPost'
+		]);
+
+		Route::get('/hapus/{id}', [
+			'as'	=> 'mukim.hapus',
+			'uses'	=> 'MukimController@hapus'
+		]);
+
+		Route::get('/show/{id}', [
+			'as'	=>	'mukim.show',
+			'uses'	=>	'MukimController@show'
+		]);
+
+		Route::post('/show/{id}',[
+			'as'	=>	'mukim.update',
+			'uses'	=>	'MukimController@update'
+		]);
+	});
 
 
 
 
 	//Wilayah
-	Route::get('/wilayah', [
-		'as'	=> 'wilayah.index', 
-		'uses'	=> 'WilayahController@index'
-	]); // listing of daerah
+	Route::group(['prefix' => 'wilayah'], function() {
+		Route::get('/', [
+			'as'	=> 'wilayah.index', 
+			'uses'	=> 'WilayahController@index'
+		]); // listing of daerah
 
-	Route::get('/wilayah/create', [
-		'as'	=> 'wilayah.create',
-		'uses'	=> 'WilayahController@create'
-	]);
+		Route::get('/create', [
+			'as'	=> 'wilayah.create',
+			'uses'	=> 'WilayahController@create'
+		]);
 
-	Route::post('/wilayah/create', [
-		'as'	=> 'wilayah.createPost',
-		'uses'	=> 'WilayahController@createPost'
-	]);
+		Route::post('/create', [
+			'as'	=> 'wilayah.createPost',
+			'uses'	=> 'WilayahController@createPost'
+		]);
 
-	Route::get('/wilayah/hapus/{id}', [
-		'as'	=> 'wilayah.hapus',
-		'uses'	=> 'WilayahController@hapus'
-	]);
+		Route::get('/hapus/{id}', [
+			'as'	=> 'wilayah.hapus',
+			'uses'	=> 'WilayahController@hapus'
+		]);
+
+		Route::get('/show/{id}', [
+			'as'	=>	'wilayah.show',
+			'uses'	=>	'WilayahController@show'
+		]);
+
+		Route::post('/show/{id}',[
+			'as'	=>	'wilayah.update',
+			'uses'	=>	'WilayahController@update'
+		]);
+	});
 
 
 	//Fasa
-	Route::get('/fasa', [
-		'as'	=>	'fasa.index',
-		'uses'	=>	'FasaController@index'
-	]);
+	Route::group(['prefix' => 'fasa'], function() {
+		Route::get('/', [
+			'as'	=>	'fasa.index',
+			'uses'	=>	'FasaController@index'
+		]);
 
-	Route::get('/fasa/create', [
-		'as'	=>	'fasa.create',
-		'uses'	=>	'FasaController@create'
-	]);
+		Route::get('/create', [
+			'as'	=>	'fasa.create',
+			'uses'	=>	'FasaController@create'
+		]);
 
-	Route::post('/fasa/create', [
-		'as'	=>	'fasa.createPost',
-		'uses'	=>	'FasaController@createPost'
-	]);
+		Route::post('/create', [
+			'as'	=>	'fasa.createPost',
+			'uses'	=>	'FasaController@createPost'
+		]);
 
-	Route::get('/fasa/hapus/{id}', [
-		'as'	=>	'fasa.hapus',
-		'uses'	=>	'FasaController@hapus'
-	]);
+		Route::get('/hapus/{id}', [
+			'as'	=>	'fasa.hapus',
+			'uses'	=>	'FasaController@hapus'
+		]);
+		Route::get('/show/{id}', [
+			'as'	=>	'fasa.show',
+			'uses'	=>	'FasaController@show'
+		]);
+
+		Route::post('/show/{id}',[
+			'as'	=>	'fasa.update',
+			'uses'	=>	'FasaController@update'
+		]);
+	});
 
 
 	//Lokaliti
@@ -191,25 +227,37 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 
 
 	//Pakej
-	Route::get('/pakej', [
-		'as'	=>	'pakej.index',
-		'uses'	=>	'PakejController@index'
-	]);
+	Route::group(['prefix' => 'pakej'], function() {
+		Route::get('/', [
+			'as'	=>	'pakej.index',
+			'uses'	=>	'PakejController@index'
+		]);
 
-	Route::get('/pakej/create', [
-		'as'	=>	'pakej.create',
-		'uses'	=>	'PakejController@create'
-	]);
+		Route::get('/create', [
+			'as'	=>	'pakej.create',
+			'uses'	=>	'PakejController@create'
+		]);
 
-	Route::post('/pakej/create', [
-		'as'	=>	'pakej.createPost',
-		'uses'	=>	'PakejController@createPost'
-	]);
+		Route::post('/create', [
+			'as'	=>	'pakej.createPost',
+			'uses'	=>	'PakejController@createPost'
+		]);
 
-	Route::get('/pakej/hapus/{id}', [
-		'as'	=>	'pakej.hapus',
-		'uses'	=>	'PakejController@hapus'
-	]);
+		Route::get('/hapus/{id}', [
+			'as'	=>	'pakej.hapus',
+			'uses'	=>	'PakejController@hapus'
+		]);
+
+		Route::get('/show/{id}', [
+			'as'	=>	'pakej.show',
+			'uses'	=>	'PakejController@show'
+		]);
+		
+		Route::post('/show/{id}',[
+			'as'	=>	'pakej.update',
+			'uses'	=>	'PakejController@update'
+		]);
+	});
 
 
 

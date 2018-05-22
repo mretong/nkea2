@@ -66,4 +66,46 @@ class WilayahController extends Controller
 
     	return redirect()->route('members.wilayah.index');
     }
+
+    //kemaskini start
+    public function show($id)
+    {
+        $territory = Wilayah::findOrFail($id);
+        $district = Daerah::pluck('nama','id');
+
+        return view('wilayah.show', compact('territory','district'));
+    }
+
+    public function update($id, Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
+            'daerah_id' => 'required|numeric',
+            'nama'      => 'required|min:3',
+            'kod'       => 'required|min:2'
+        ]);
+
+        if($validation->fails()) {
+            return redirect()->route('members.wilayah.show')
+                ->withErrors($validation)
+                ->withInputs();
+        }
+        
+        $wilayah = Wilayah::find($id);
+
+        $wilayah->daerah_id    =   strtoupper($request->get('daerah_id'));
+        $wilayah->nama         =   strtoupper($request->get('nama'));
+        $wilayah->kod          =   strtoupper($request->get('kod'));
+
+        $wilayah->save();
+
+        if($wilayah) 
+            Session::flash('message', 'Berjaya. Data telah dikemaskini.');
+        else
+            Session::flash('message', 'Gagal. Data gagal dikemaskini.');
+
+        return redirect()->route('members.wilayah.index');
+    }
+
+    //kemaskini end
 }

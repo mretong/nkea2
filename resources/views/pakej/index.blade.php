@@ -24,7 +24,10 @@
 				<td><center>{{ $package->nama }}</td>
 				<td><center>{{ $package->kod }}</td>
 				
-				<td><center><a href="{{ route('members.pakej.hapus', ['id' => $package->id]) }}"><button class="btn btn-danger">Hapus</button></a></center></td>
+				<td><center>
+					<a href="{{ route('members.pakej.show', ['id' => $package->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
+					<a href="{{ route('members.pakej.hapus', ['id' => $package->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+				</center></td>
 								
 			</tr>	
 		@empty
