@@ -580,25 +580,38 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 
 
 	//Status Milik
-	Route::get('/status_milik', [
-		'as'	=>	'status_milik.index',
-		'uses'	=>	'StatusMilikController@index'
-	]);
+	Route::group(['prefix' => 'status_milik'], function() {
+	
+		Route::get('/', [
+			'as'	=>	'status_milik.index',
+			'uses'	=>	'StatusMilikController@index'
+		]);
 
-	Route::get('/status_milik/create', [
-		'as'	=>	'status_milik.create',
-		'uses'	=>	'StatusMilikController@create'
-	]);
+		Route::get('/create', [
+			'as'	=>	'status_milik.create',
+			'uses'	=>	'StatusMilikController@create'
+		]);
 
-	Route::post('/status_milik/create', [
-		'as'	=>	'status_milik.createPost',
-		'uses'	=>	'StatusMilikController@createPost'
-	]);
+		Route::post('/create', [
+			'as'	=>	'status_milik.createPost',
+			'uses'	=>	'StatusMilikController@createPost'
+		]);
 
-	Route::get('/status_milik/hapus/{id}', [
-		'as'	=>	'status_milik.hapus',
-		'uses'	=>	'StatusMilikController@hapus'
-	]);
+		Route::get('/hapus/{id}', [
+			'as'	=>	'status_milik.hapus',
+			'uses'	=>	'StatusMilikController@hapus'
+		]);
+
+		Route::get('/show/{id}', [
+			'as'	=>	'status_milik.show',
+			'uses'	=>	'StatusMilikController@show'
+		]);
+
+		Route::post('/show/{id}',[
+			'as'	=>	'status_milik.update',
+			'uses'	=>	'StatusMilikController@update'
+		]);
+	});
 
 
 

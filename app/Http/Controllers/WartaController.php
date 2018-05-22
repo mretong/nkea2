@@ -93,6 +93,7 @@ class WartaController extends Controller
         $validation = Validator::make($request->all(), [
             'blok_id'   => 'required|numeric',
             'pakej_id'   => 'required|numeric',
+            'tarikh_warta'   => 'required',
             'jilid'   => 'required|min:2',
             'no_warta'  => 'required|min:2',
             'rujukan'   => 'required|min:2',

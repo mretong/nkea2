@@ -26,7 +26,7 @@ class StatusMilikController extends Controller
 
     	$validation = Validator::make($request->all(), [
     		'nama'	=> 'required|min:3',
-    		'kod'	=> 'required|min:3'
+    		'kod'	=> 'required|min:2'
     	]);
 
     	if($validation->fails()) {
@@ -51,7 +51,7 @@ class StatusMilikController extends Controller
 
     public function hapus($id) {
 
-    	$owned = StatusAduan::findOrFail($id)->delete();
+    	$owned = StatusMilik::findOrFail($id)->delete();
 
 
     	if($owned)
@@ -62,4 +62,43 @@ class StatusMilikController extends Controller
 
     	return redirect()->route('members.status_milik.index');
     }
+
+    //kemaskini start
+    public function show($id)
+    {
+        $milikan = StatusMilik::findOrFail($id);
+
+        return view('status_milik.show', compact('milikan'));
+    }
+
+    public function update($id, Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
+            'nama'      => 'required|min:3',
+            'kod'       => 'required|min:2'
+        ]);
+
+        if($validation->fails()) {
+            return redirect()->route('members.status_milik.show')
+                ->withErrors($validation)
+                ->withInputs();
+        }
+        
+        $smilik = StatusMilik::find($id);
+
+        $smilik->nama         =   strtoupper($request->get('nama'));
+        $smilik->kod          =   strtoupper($request->get('kod'));
+
+        $smilik->save();
+
+        if($smilik) 
+            Session::flash('message', 'Berjaya. Data telah dikemaskini.');
+        else
+            Session::flash('message', 'Gagal. Data gagal dikemaskini.');
+
+        return redirect()->route('members.status_milik.index');
+    }
+
+    //kemaskini end
 }

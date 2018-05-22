@@ -24,7 +24,10 @@
 				<td><center>{{ $own->nama }}</td>
 				<td><center>{{ $own->kod }}</td>
 				
-				<td><center><a href="{{ route('members.status_milik.hapus', ['id' => $own->id]) }}"><button class="btn btn-danger">Hapus</button></a></center></td>
+				<td><center>
+					<a href="{{ route('members.status_milik.show', ['id' => $own->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
+					<a href="{{ route('members.status_milik.hapus', ['id' => $own->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+				</center></td>
 								
 			</tr>	
 		@empty
