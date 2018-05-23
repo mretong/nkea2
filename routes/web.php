@@ -471,6 +471,16 @@ Route::group(['prefix' => 'members', 'as' => 'members.', 'middleware' => 'auth']
 		'uses'	=>	'AduanController@hapus'
 	]);
 
+	Route::get('/show/{id}', [
+		'as'	=>	'aduan.show',
+		'uses'	=>	'AduanController@show'
+	]);
+
+	Route::post('/show/{id}',[
+		'as'	=>	'aduan.update',
+		'uses'	=>	'AduanController@update'
+	]);
+
 
 
 

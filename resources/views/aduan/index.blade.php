@@ -28,6 +28,7 @@
 				
 				<td><center>					
 					
+					<a href="{{ route('members.aduan.show', ['id' => $complaint->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
 					<a href="{{ route('members.aduan.hapus', ['id' => $complaint->id]) }}"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
 								
