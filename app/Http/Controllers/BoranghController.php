@@ -87,4 +87,65 @@ class BoranghController extends Controller
 
     	return redirect()->route('members.borangh.index');
     }
+
+    //kemaskini start
+    public function show($id)
+    {
+        $owner = Pemilik::findOrFail($id);
+        $blok = Blok::pluck('nama','id');
+        $lot = Lot::pluck('no_lot','id');
+        $status = StatusMilik::pluck('nama','id');
+        $kategori = KategoriPampasan::pluck('nama','id');
+
+        return view('borangh.show', compact('owner','blok','lot','kategori','status'));
+    }
+
+    public function update($id, Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
+            'blok_id'  => 'required|numeric',
+            'lot_id'  => 'required|numeric',
+            'nama'  => 'required|min:3',
+            'no_kp'  => 'required|min:7',
+            'status_milikan_id'  => 'required|numeric',
+            'pecahan'  => 'required|min:2',
+            'tarikh_h'  => 'required',
+            'tarikh_terima'  => 'required',
+            'kategori_pampasan_id'  => 'required|numeric'
+            
+        ]);
+
+        if($validation->fails()) {
+            return redirect()->route('members.borangh.show')
+                ->withErrors($validation)
+                ->withInputs();
+        }
+        
+        $pemilik = Pemilik::find($id);
+
+        $pemilik->blok_id         =   strtoupper($request->get('blok_id'));
+        $pemilik->lot_id          =   strtoupper($request->get('lot_id'));
+        $pemilik->nama          =   strtoupper($request->get('nama'));
+        $pemilik->no_kp          =   strtoupper($request->get('no_kp'));
+        $pemilik->status_milikan_id          =   strtoupper($request->get('status_milikan_id'));
+        $pemilik->pecahan          =   strtoupper($request->get('pecahan'));
+        $pemilik->tarikh_h          =   strtoupper($request->get('tarikh_h'));
+        $pemilik->tarikh_terima          =   strtoupper($request->get('tarikh_terima'));
+        $pemilik->rujukan_jkptg          =   strtoupper($request->get('rujukan_jkptg'));
+        $pemilik->rujukan_jps          =   strtoupper($request->get('rujukan_jps'));
+        $pemilik->kategori_pampasan_id          =   strtoupper($request->get('kategori_pampasan_id'));
+        
+
+        $pemilik->save();
+
+        if($pemilik) 
+            Session::flash('message', 'Berjaya. Data telah dikemaskini.');
+        else
+            Session::flash('message', 'Gagal. Data gagal dikemaskini.');
+
+        return redirect()->route('members.borangh.index');
+    }
+
+    //kemaskini end.
 }
