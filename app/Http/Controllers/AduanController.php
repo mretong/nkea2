@@ -24,7 +24,7 @@ class AduanController extends Controller
     public function create()
     {
     	$blok = Blok::pluck('nama','id');
-    	$lot = Lot::pluck('no_lot','no_hakmilik');
+    	$lot = Lot::pluck('no_lot','id');
     	$staff = Staff::pluck('nama','id');
     	$status = StatusAduan::pluck('nama','id');
 
@@ -34,24 +34,27 @@ class AduanController extends Controller
     public function createPost(Request $request) {
 
     	$validation = Validator::make($request->all(), [
-            'aduan'  => 'required|min:3',
+            'aduan'  => 'required|min:2',
+            'tarikh_aduan'  => 'required',
+            'tarikh_selesai'  => 'required',
+            'masa'  => 'required',
             'staff_id'  => 'required|numeric',
             'blok_id'  => 'required|numeric',
             'no_lot'  => 'required|numeric',
-            'pengadu'  => 'required|min:3',
-            'no_tel'  => 'required|min:3',
-            'catatan'  => 'required|min:3',
-            'm_balas'  => 'required|min:3',
+            'pengadu'  => 'required|min:2',
+            'no_tel'  => 'required|min:2',
+            'catatan'  => 'required|min:2',
+            'm_balas'  => 'required|min:2',
     		'status_id'	=> 'required|numeric'
     	]);
 
     	if($validation->fails()) {
-    		return redirect()->route('members.blok.create')
+    		return redirect()->route('members.aduan.create')
     			->withErrors($validation)
     			->withInputs();
     	}
 
-    	$state = Aduan::create([
+    	$aduan = Aduan::create([
                 'no_aduan'  => strtoupper($request->get('aduan')),
                 'tarikh_terima'  => strtoupper($request->get('tarikh_aduan')),
                 'tarikh_selesai'  => strtoupper($request->get('tarikh_selesai')),
@@ -66,25 +69,25 @@ class AduanController extends Controller
     			'status_aduan_id'	=> strtoupper($request->get('status_id'))
     		]);
 
-    	if($state) 
+    	if($aduan) 
     		Session::flash('message', 'Berjaya. Data telah ditambah.');
     	else
     		Session::flash('message', 'Gagal. Data gagal ditambah.');
 
-    	return redirect()->route('members.blok.index');
+    	return redirect()->route('members.aduan.index');
 
     }
 
     public function hapus($id) {
 
-    	$state = Aduan::findOrFail($id)->delete();
+    	$aduan = Aduan::findOrFail($id)->delete();
 
-    	if($state)
+    	if($aduan)
     		Session::flash('message', 'Berjaya. Data telah dihapus.');
     	else
     		Session::flash('message', 'Gagal. Data gagal dihapus.');
 
 
-    	return redirect()->route('members.blok.index');
+    	return redirect()->route('members.aduan.index');
     }
 }

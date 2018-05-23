@@ -29,6 +29,6 @@ class Aduan extends Model
 
     public function status()
     {
-    	return $this->hasOne('App\StatusAduan','status_aduan_id','id');
+    	return $this->belongsTo('App\StatusAduan','status_aduan_id','id');
     }
 }

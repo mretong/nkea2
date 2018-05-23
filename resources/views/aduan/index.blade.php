@@ -23,11 +23,11 @@
 		    <tr>
 				<td><center>{{ $loop->iteration }}</td>
 				<td><center>{{ $complaint->tarikh_terima }}</td>
-				<td><center>{{ $complaint->lot_id }}</td>
-				<td><center>{{ $complaint->status_aduan_id }}</td>
+				<td><center>{{ $complaint->lot->no_lot }} - {{ $complaint->lot->no_hakmilik }} </td>
+				<td><center>{{ $complaint->status->nama }}</td>
 				
 				<td><center>					
-					<a href="{{ route('members.aduan.show', ['id' => $complaint->id]) }}"><button class="btn btn-info">Hapus</button></a>
+					
 					<a href="{{ route('members.aduan.hapus', ['id' => $complaint->id]) }}"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
 								
