@@ -25,7 +25,15 @@
 				<td><center>{{ $stay->daerah->nama }}</td>
 				
 				<td><center><a href="{{ route('members.mukim.show', ['id' => $stay->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
-				<a href="{{ route('members.mukim.hapus', ['id' => $stay->id]) }}"><button class="btn btn-danger">Hapus</button></a></center></td>
+				<a href="{{ route('members.mukim.hapus', ['id' => $stay->id]) }}" onclick="return myFunction();"><button class="btn btn-danger">Hapus</button></a></center></td>
+
+				<script>
+						function myFunction()
+						{
+							if(!confirm("Are You Sure to delete this data from the system?"))
+							event.preventDefault();
+						}
+					</script>
 								
 			</tr>	
 		@empty

@@ -26,7 +26,14 @@
 				
 				<td><center>
 					<a href="{{ route('members.status_aduan.show', ['id' => $comp->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
-					<a href="{{ route('members.status_aduan.hapus', ['id' => $comp->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+					<a href="{{ route('members.status_aduan.hapus', ['id' => $comp->id]) }}" onclick="return myFunction();"><button class="btn btn-danger">Hapus</button></a>
+					<script>
+						function myFunction()
+						{
+							if(!confirm("Are You Sure to delete this data from the system?"))
+							event.preventDefault();
+						}
+					</script>
 				</center></td>
 								
 			</tr>	

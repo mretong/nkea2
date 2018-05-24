@@ -28,7 +28,14 @@
 				
 				<td><center>					
 					<a href="{{ route('members.daerah.show', ['id' => $district->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
-					<a href="{{ route('members.daerah.hapus', ['id' => $district->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+					<a href="{{ route('members.daerah.hapus', ['id' => $district->id]) }}" onclick="return myFunction();"><button class="btn btn-danger">Hapus</button></a>
+					<script>
+						function myFunction()
+						{
+							if(!confirm("Are You Sure to delete this data from the system?"))
+							event.preventDefault();
+						}
+					</script>
 				</center></td>
 								
 			</tr>	

@@ -28,9 +28,16 @@
 				
 				<td><center>					
 					<a href="{{ route('members.warta.show', ['id' => $warrant->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
-					<a href="{{ route('members.warta.hapus', ['id' => $warrant->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+					<a href="{{ route('members.warta.hapus', ['id' => $warrant->id]) }}" onclick="return myFunction();"><button class="btn btn-danger">Hapus</button></a>
 				</center></td>
-								
+					
+					<script>
+						function myFunction()
+						{
+							if(!confirm("Are You Sure to delete this data from the system?"))
+							event.preventDefault();
+						}
+					</script>			
 			</tr>	
 		@empty
 		    <tr>

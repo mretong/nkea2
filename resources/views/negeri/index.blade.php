@@ -25,7 +25,15 @@
 				<td><center>{{ $state-> kod }}</td>
 				
 				<td><center><a href="{{ route('members.negeri.show', ['id' => $state->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
-				<a href="{{ route('members.negeri.hapus', ['id' => $state->id]) }}"><button class="btn btn-danger">Hapus</button></a></center></td>
+				<a href="{{ route('members.negeri.hapus', ['id' => $state->id]) }}" onclick="return myFunction();"><button class="btn btn-danger">Hapus</button></a></center></td>
+
+				<script>
+						function myFunction()
+						{
+							if(!confirm("Are You Sure to delete this data from the system?"))
+							event.preventDefault();
+						}
+					</script>
 								
 			</tr>	
 		@empty

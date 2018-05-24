@@ -29,7 +29,15 @@
 				
 				<td><center>					
 					<a href="{{ route('members.borangh.show', ['id' => $owner->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
-					<a href="{{ route('members.borangh.hapus', ['id' => $owner->id]) }}"><button class="btn btn-danger">Hapus</button></a>
+					<a href="{{ route('members.borangh.hapus', ['id' => $owner->id]) }}" onclick="return myFunction();"><button class="btn btn-danger">Hapus</button></a>
+
+					<script>
+						function myFunction()
+						{
+							if(!confirm("Are You Sure to delete this data from the system?"))
+							event.preventDefault();
+						}
+					</script>
 				</center></td>
 								
 			</tr>	
