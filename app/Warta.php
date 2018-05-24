@@ -8,7 +8,8 @@ class Warta extends Model
 {
     protected $table = 'warta';
     protected $primaryKey = 'id';
-    protected $fillable = ['blok_id','pakej_id','tarikh_warta','tarikh_luput','jilid_warta','no_warta','rujukan','catatan'];
+    protected $fillable = ['blok_id','pakej_id','jilid_warta','no_warta','rujukan','catatan','tarikh_warta','tarikh_luput'];
+    protected $dates = ['tarikh_warta','tarikh_luput'];
 
     public $timestamps = true;
 

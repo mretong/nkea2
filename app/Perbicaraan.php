@@ -9,6 +9,7 @@ class Perbicaraan extends Model
     protected $table = 'perbicaraan';
     protected $primaryKey = 'id';
     protected $fillable = ['tarikh_1','daerah_id','mukim_id','blok_id','lot_id','staff_id','status_id','bil_pemilik','luas_ambil','harga_tanah','wakil_mada','wakil_jps','bilangan_bicara','pampasan','kos_lain','catatan','jajaran'];
+    protected $dates = ['tarikh_1','tarikh_2','tarikh_3','tarikh_4','tarikh_5'];
 
     public $timestamps = true;
 

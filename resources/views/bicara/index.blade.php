@@ -23,7 +23,7 @@
 		@forelse ($hearings as $hearing)
 		    <tr>
 				<td><center>{{ $loop->iteration }}</td>
-				<td><center>{{ $hearing->tarikh_1 }}</td>
+				<td><center>{{ $hearing->tarikh_1->format('d/m/Y') }}</td>
 				<td><center>{{ $hearing->lot->no_lot }} - {{ $hearing->lot->no_hakmilik }} </td>
 				<td><center>{{ $hearing->staff->nama }}</td>
 				<td><center>{{ $hearing->status->nama }}</td>

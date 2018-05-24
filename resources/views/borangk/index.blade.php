@@ -24,7 +24,7 @@
 				<td><center>{{ $loop->iteration }}</td>
 				<td><center>{{ $kform->blok->nama }}</td>
 				<td><center>{{ $kform->lot->no_lot }} - {{ $kform->lot->no_hakmilik  }} </td>
-				<td><center>{{ $kform->tarikh_k }}</td>
+				<td><center>{{ $kform->tarikh_k->format('d/m/Y') }}</td>
 				
 				<td><center>					
 					<a href="{{ route('members.borangk.show', ['id' => $kform->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
