@@ -20,7 +20,7 @@
   <body class="bg-light">
 
     <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-      <a class="navbar-brand" href="{{ route('home') }}">SRPT-NKEA</a>
+      <a class="navbar-brand" href="{{ route('home') }}">SRPT - HOME</a>
       <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -43,7 +43,7 @@
             <a class="nav-link" href="{{ route('members.aduan.index') }}">Aduan</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu Asas</a>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Maklumat Asas</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="{{ route('members.negeri.index') }}">Negeri</a>
               <a class="dropdown-item" href="{{ route('members.daerah.index') }}">Daerah</a>
@@ -55,23 +55,24 @@
               <a class="dropdown-item" href="{{ route('members.blok.index') }}">Blok</a>
               <a class="dropdown-item" href="{{ route('members.lot.index') }}">Lot</a>
               <a class="dropdown-item" href="{{ route('members.bank.index') }}">Bank</a>
-              <a class="dropdown-item" href="{{ route('members.ptj.index') }}">PTJ</a>
               <a class="dropdown-item" href="{{ route('members.staff.index') }}">Maklumat Staff</a>
-              <a class="dropdown-item" href="{{ route('members.kategori.index') }}">Kategori Bayaran</a>
+              
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu Status</a>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Maklumat Tambahan</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="{{ route('members.status_aduan.index') }}">Status Aduan</a>
               <a class="dropdown-item" href="{{ route('members.status_milik.index') }}">Status Milik</a>
               <a class="dropdown-item" href="{{ route('members.status_bicara.index') }}">Status Perbicaraan</a>
+              <a class="dropdown-item" href="{{ route('members.kategori.index') }}">Kategori Bayaran</a>
+              <a class="dropdown-item" href="{{ route('members.ptj.index') }}">PTJ</a>
             </div>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Laporan</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Laporan 1</a>
+              <!-- <a class="dropdown-item" href="#">Laporan 1</a> -->
             </div>
           </li>
         </ul>
