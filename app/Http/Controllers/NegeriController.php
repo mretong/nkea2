@@ -107,4 +107,10 @@ class NegeriController extends Controller
 
     //kemaskini end.
 
+    public function print($id)
+    {
+        $states = Negeri::all();
+        return view('negeri.print',compact('states'));
+    }
+
 }

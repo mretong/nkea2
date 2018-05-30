@@ -24,8 +24,10 @@
 				<td><center>{{ $state->nama }}</td>
 				<td><center>{{ $state-> kod }}</td>
 				
-				<td><center><a href="{{ route('members.negeri.show', ['id' => $state->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
-				<a href="{{ route('members.negeri.hapus', ['id' => $state->id]) }}" onclick="return myFunction();"><button class="btn btn-danger">Hapus</button></a></center></td>
+				<td><center>
+					<a href="{{ route('members.negeri.show', ['id' => $state->id]) }}"><button class="btn btn-info">Kemaskini</button></a>
+					<a href="{{ route('members.negeri.hapus', ['id' => $state->id]) }}" onclick="return myFunction();"><button class="btn btn-danger">Hapus</button></a>
+				</center></td>
 
 				<script>
 						function myFunction()
